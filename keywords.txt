@@ -1,0 +1,52 @@
+  
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+UnifiedMp3PlayerType    KEYWORD1
+UnifiedMp3PlayerStorage KEYWORD1
+UnifiedMp3PlayerMode    KEYWORD1
+UnifiedMP3              KEYWORD1
+
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+stop		KEYWORD2
+next	KEYWORD2
+previous     KEYWORD2
+volume	KEYWORD2
+volumeDown		KEYWORD2
+volumeUp		KEYWORD2
+selectStorage		KEYWORD2
+pause		KEYWORD2
+start		KEYWORD2
+playByIndex		KEYWORD2
+playByName		KEYWORD2
+playDirectoryByNumber		KEYWORD2
+playDirectoryByName		KEYWORD2
+loopDirectory		KEYWORD2
+playMp3Directory		KEYWORD2
+cutInPlay		KEYWORD2
+setEQ		KEYWORD2
+
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+KT403A_PLAYER	LITERAL1
+WT2003S_PLAYER	LITERAL1
+WT2605C_PLAYER	LITERAL1
+DF_ROBOT_DFP_PLAYER_MINI	LITERAL1
+SD_STORAGE	LITERAL1
+SPI_STORAGE	LITERAL1
+UDISK_STORAGE	LITERAL1
+MP3_MODE_CYCLE	LITERAL1
+MP3_MODE_SINGLE_CYCLE	LITERAL1
+MP3_MODE_DIR_CYCLE	LITERAL1
+MP3_MODE_RANDOM	LITERAL1
+MP3_MODE_SINGLE_SHOT	LITERAL1
+
+
