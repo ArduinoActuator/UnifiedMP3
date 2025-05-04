@@ -8,8 +8,6 @@
 
 #include "UnifiedMP3_config.h"
 
-//#include "config.h"
-
 #ifdef USE_KT403A_PLAYER  // Grove - MP3 v2.0  https://wiki.seeedstudio.com/Grove-MP3_v2.0/
 #include "KT403A_Player.h"
 #endif /* USE_KT403A_PLAYER */
