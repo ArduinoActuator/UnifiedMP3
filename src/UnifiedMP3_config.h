@@ -1,9 +1,12 @@
 #ifndef __UNIFIED_MP3_CONFIG_H__
 #define __UNIFIED_MP3_CONFIG_H__
 
-#undef USE_KT403A_PLAYER
-#undef USE_WT2003S_PLAYER
-//#undef USE_WT2605C_PLAYER
-#undef USE_DF_ROBOT_DF_PLAYER_MINI
+#undef __USE_KT403A_PLAYER___
+#undef __USE_WT2003S_PLAYER___
+//#undef __USE_WT2605C_PLAYER___
+//#undef __USE_DF_ROBOT_DF_PLAYER_MINI___
+
+#define __USE_SOFTWARE_SERIAL__
+
 
 #endif /* __UNIFIED_MP3_CONFIG_H__ */

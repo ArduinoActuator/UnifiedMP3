@@ -1,34 +1,43 @@
 #ifndef __UNIFIED_MP3_H__
 #define __UNIFIED_MP3_H__
 
-#define USE_KT403A_PLAYER
-#define USE_WT2003S_PLAYER
-#define USE_WT2605C_PLAYER
-#define USE_DF_ROBOT_DF_PLAYER_MINI
+#define __USE_KT403A_PLAYER___
+#define __USE_WT2003S_PLAYER___
+#define __USE_WT2605C_PLAYER___
+#define __USE_DF_ROBOT_DF_PLAYER_MINI___
 
 #include "UnifiedMP3_config.h"
 
-#ifdef USE_KT403A_PLAYER  // Grove - MP3 v2.0  https://wiki.seeedstudio.com/Grove-MP3_v2.0/
+#ifdef __USE_KT403A_PLAYER___  // Grove - MP3 v2.0  https://wiki.seeedstudio.com/Grove-MP3_v2.0/
 #include "KT403A_Player.h"
-#endif /* USE_KT403A_PLAYER */
+#endif /* __USE_KT403A_PLAYER___ */
 
-#ifdef USE_WT2003S_PLAYER  // Grove - MP3 v3.0  https://wiki.seeedstudio.com/Grove-MP3-v3/
+#ifdef __USE_WT2003S_PLAYER___  // Grove - MP3 v3.0  https://wiki.seeedstudio.com/Grove-MP3-v3/
 #include "WT2003S_Player.h"
-#endif /* USE_WT2003S_PLAYER */
+#endif /* __USE_WT2003S_PLAYER___ */
 
-#ifdef USE_WT2605C_PLAYER  // Grove - MP3 v4.0  https://wiki.seeedstudio.com/grove_mp3_v4/
+#ifdef __USE_WT2605C_PLAYER___  // Grove - MP3 v4.0  https://wiki.seeedstudio.com/grove_mp3_v4/
 #include "WT2605C_Player.h"
-#endif /* USE_WT2605C_PLAYER */
+#endif /* __USE_WT2605C_PLAYER___ */
 
-#ifdef USE_DF_ROBOT_DF_PLAYER_MINI
+#ifdef __USE_DF_ROBOT_DF_PLAYER_MINI___
 #include "DFRobotDFPlayerMini.h"
-#endif /* USE_DF_ROBOT_DF_PLAYER_MINI */
+#endif /* __USE_DF_ROBOT_DF_PLAYER_MINI___ */
 
+#ifdef __AVR__
 #include <SoftwareSerial.h>
+#endif /* __AVR__ */
 
-#define UNIFIED_MP3_UNSUPPORTED -1
-#define UNIFIED_MP3_SUCCESS      1
-#define UNIFIED_MP3_FAIL         0
+//#define UNIFIED_MP3_UNSUPPORTED -1
+//#define UNIFIED_MP3_SUCCESS      1
+//#define UNIFIED_MP3_FAIL         0
+
+
+typedef enum {
+  MP3_FUNCTION_UNSUPPORTED = 1,
+  MP3_FUNCTION_SUCCESS,
+  MP3_FUNCTION_FAIL,
+} mp3FunctionReturnValue;
 
 
 typedef enum {
@@ -54,67 +63,80 @@ typedef enum {
 
 class UnifiedMP3 {
 public:
-#ifdef USE_KT403A_PLAYER
+#ifdef __USE_KT403A_PLAYER___
   UnifiedMP3(KT403A<SoftwareSerial> * kt403a, UnifiedMp3PlayerType type);
-#endif /* USE_KT403A_PLAYER */
-#ifdef USE_WT2003S_PLAYER
+#endif /* __USE_KT403A_PLAYER___ */
+#ifdef __USE_WT2003S_PLAYER___
   UnifiedMP3(WT2003S<SoftwareSerial> * wt2003s, UnifiedMp3PlayerType type);
-#endif /* USE_WT2003S_PLAYER */
-#ifdef USE_WT2605C_PLAYER
+#endif /* __USE_WT2003S_PLAYER___ */
+#ifdef __USE_WT2605C_PLAYER___
   UnifiedMP3(WT2605C<SoftwareSerial> * wt2605c, UnifiedMp3PlayerType type);
-#endif /* USE_WT2605C_PLAYER */
-#ifdef USE_DF_ROBOT_DF_PLAYER_MINI
+#endif /* __USE_WT2605C_PLAYER___ */
+#ifdef __USE_DF_ROBOT_DF_PLAYER_MINI___
   UnifiedMP3(DFRobotDFPlayerMini *dfr_player_mini, UnifiedMp3PlayerType type);
-#endif /* USE_DF_ROBOT_DF_PLAYER_MINI */
-  int stop(void);
-  int next(void);
-  int previous(void);
-  int volume(uint8_t volume);
-  int volumeDown(void);
-  int volumeUp(void);
-  int selectStorage(UnifiedMp3PlayerStorage storage);
-  int pause(void);
-  int start(void);
-  int playByIndex(uint32_t index, UnifiedMp3PlayerMode mode);
-  int playByName(const char* fileName, UnifiedMp3PlayerMode mode);
-  int playDirectoryByNumber(uint8_t folderNumber, uint32_t fileNumber, UnifiedMp3PlayerMode mode);
-  int playDirectoryByName(const char* dir, uint32_t fileNumber, UnifiedMp3PlayerMode mode);
-  int loopDirectory(int folderNumber);
-  int playMp3Directory(int fileNumber);
-  int cutInPlay(UnifiedMp3PlayerStorage device, uint32_t index);
-  int setEQ(uint8_t eq);
+#endif /* __USE_DF_ROBOT_DF_PLAYER_MINI___ */
+  mp3FunctionReturnValue stop(void);
+  mp3FunctionReturnValue next(void);
+  mp3FunctionReturnValue previous(void);
+  mp3FunctionReturnValue volume(uint8_t volume);
+  mp3FunctionReturnValue volumeDown(void);
+  mp3FunctionReturnValue volumeUp(void);
+  mp3FunctionReturnValue selectStorage(UnifiedMp3PlayerStorage storage);
+  mp3FunctionReturnValue pause(void);
+  mp3FunctionReturnValue start(void);
+  mp3FunctionReturnValue playByIndex(uint32_t index, UnifiedMp3PlayerMode mode);
+  mp3FunctionReturnValue playByName(const char* fileName, UnifiedMp3PlayerMode mode);
+  mp3FunctionReturnValue playDirectoryByNumber(uint8_t folderNumber, uint32_t fileNumber, UnifiedMp3PlayerMode mode);
+  mp3FunctionReturnValue playLargeDirectoryByNumber(uint8_t folderNumber, uint32_t fileNumber);
+  mp3FunctionReturnValue playDirectoryByName(const char* dir, uint32_t fileNumber, UnifiedMp3PlayerMode mode);
+  mp3FunctionReturnValue loopDirectory(int folderNumber);
+  mp3FunctionReturnValue playMp3Directory(int fileNumber);
+  mp3FunctionReturnValue cutInPlay(UnifiedMp3PlayerStorage device, uint32_t index);
+  mp3FunctionReturnValue setEQ(uint8_t eq);
 
 private:
-  int setMode(UnifiedMp3PlayerMode mode);
-#if defined(USE_WT2003S_PLAYER) || defined(USE_WT2605C_PLAYER)
+  mp3FunctionReturnValue setMode(UnifiedMp3PlayerMode mode);
+#if defined(__USE_WT2003S_PLAYER___) || defined(__USE_WT2605C_PLAYER___)
   UnifiedMp3PlayerStorage _storage_type;
-#endif /* USE_WT2003S_PLAYER || USE_WT2605C_PLAYER */
+#endif /* __USE_WT2003S_PLAYER___ || __USE_WT2605C_PLAYER___ */
   UnifiedMp3PlayerType _type;
-#ifdef USE_KT403A_PLAYER
+#ifdef __USE_KT403A_PLAYER___
+#ifdef __USE_SOFTWARE_SERIAL__
   KT403A<SoftwareSerial> * _kt403a;
-#endif /* USE_KT403A_PLAYER */
-#ifdef USE_WT2003S_PLAYER
+#else /* __USE_SOFTWARE_SERIAL__ */
+  KT403A<HardwareSerial> * _kt403a;
+#endif /* __USE_SOFTWARE_SERIAL__ */
+#endif /* __USE_KT403A_PLAYER___ */
+#ifdef __USE_WT2003S_PLAYER___
+#ifdef __USE_SOFTWARE_SERIAL__
   WT2003S<SoftwareSerial> * _wt2003s;
-#endif /* USE_WT2003S_PLAYER */
-#ifdef USE_WT2605C_PLAYER
+#else /* __USE_SOFTWARE_SERIAL__ */
+  WT2003S<HardwareSerial> * _wt2003s;
+#endif /* __USE_SOFTWARE_SERIAL__ */
+#endif /* __USE_WT2003S_PLAYER___ */
+#ifdef __USE_WT2605C_PLAYER___
+#ifdef __USE_SOFTWARE_SERIAL__
   WT2605C<SoftwareSerial> * _wt2605c;
-#endif /* USE_WT2605C_PLAYER */
-#ifdef USE_DF_ROBOT_DF_PLAYER_MINI
+#else /* __USE_SOFTWARE_SERIAL__ */
+  WT2605C<HardwareSerial> * _wt2605c;
+#endif /* __USE_SOFTWARE_SERIAL__ */
+#endif /* __USE_WT2605C_PLAYER___ */
+#ifdef __USE_DF_ROBOT_DF_PLAYER_MINI___
   DFRobotDFPlayerMini * _dfr_player_mini;
-#endif /* USE_DF_ROBOT_DF_PLAYER_MINI */
+#endif /* __USE_DF_ROBOT_DF_PLAYER_MINI___ */
 };
 
 #endif /* __UNIFIED_MP3_H__ */
 
-#if defined(USE_KT403A_PLAYER) || defined(USE_WT2003S_PLAYER) || defined(USE_WT2605C_PLAYER)
-#endif /* USE_KT403A_PLAYER || USE_WT2003S_PLAYER || USE_WT2605C_PLAYER */
+#if defined(__USE_KT403A_PLAYER___) || defined(__USE_WT2003S_PLAYER___) || defined(__USE_WT2605C_PLAYER___)
+#endif /* __USE_KT403A_PLAYER___ || __USE_WT2003S_PLAYER___ || __USE_WT2605C_PLAYER___ */
 
 
-#ifdef USE_KT403A_PLAYER
-#endif /* USE_KT403A_PLAYER */
-#ifdef USE_WT2003S_PLAYER
-#endif /* USE_WT2003S_PLAYER */
-#ifdef USE_WT2605C_PLAYER
-#endif /* USE_WT2605C_PLAYER */
-#ifdef USE_DF_ROBOT_DF_PLAYER_MINI
-#endif /* USE_DF_ROBOT_DF_PLAYER_MINI */
+#ifdef __USE_KT403A_PLAYER___
+#endif /* __USE_KT403A_PLAYER___ */
+#ifdef __USE_WT2003S_PLAYER___
+#endif /* __USE_WT2003S_PLAYER___ */
+#ifdef __USE_WT2605C_PLAYER___
+#endif /* __USE_WT2605C_PLAYER___ */
+#ifdef __USE_DF_ROBOT_DF_PLAYER_MINI___
+#endif /* __USE_DF_ROBOT_DF_PLAYER_MINI___ */

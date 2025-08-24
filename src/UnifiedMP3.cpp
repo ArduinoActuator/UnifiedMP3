@@ -1,443 +1,444 @@
 #include "UnifiedMP3.h"
 
-#ifdef USE_KT403A_PLAYER
+#ifdef __USE_KT403A_PLAYER___
 UnifiedMP3::UnifiedMP3(KT403A<SoftwareSerial> * kt403a, UnifiedMp3PlayerType type):
   _kt403a(kt403a),
   _type(type)
 {
 }
-#endif /* USE_KT403A_PLAYER */
-#ifdef USE_WT2003S_PLAYER
+#endif /* __USE_KT403A_PLAYER___ */
+#ifdef __USE_WT2003S_PLAYER___
 UnifiedMP3::UnifiedMP3(WT2003S<SoftwareSerial> * wt2003s, UnifiedMp3PlayerType type):
   _wt2003s(wt2003s),
   _type(type)
 {
   _storage_type = SD_STORAGE;
 }
-#endif /* USE_WT2003S_PLAYER */
-#ifdef USE_WT2605C_PLAYER
+#endif /* __USE_WT2003S_PLAYER___ */
+#ifdef __USE_WT2605C_PLAYER___
 UnifiedMP3::UnifiedMP3(WT2605C<SoftwareSerial> * wt2605c, UnifiedMp3PlayerType type):
   _wt2605c(wt2605c),
   _type(type)
 {
   _storage_type = SD_STORAGE;
 }
-#endif /* USE_WT2605C_PLAYER */
-#ifdef USE_DF_ROBOT_DF_PLAYER_MINI
+#endif /* __USE_WT2605C_PLAYER___ */
+#ifdef __USE_DF_ROBOT_DF_PLAYER_MINI___
 UnifiedMP3::UnifiedMP3(DFRobotDFPlayerMini *dfr_player_mini, UnifiedMp3PlayerType type):
   _dfr_player_mini(dfr_player_mini),
   _type(type)
 {
 }
-#endif /* USE_DF_ROBOT_DF_PLAYER_MINI */
+#endif /* __USE_DF_ROBOT_DF_PLAYER_MINI___ */
 
-int UnifiedMP3::stop(void) {
+mp3FunctionReturnValue UnifiedMP3::stop(void) {
   switch(_type) {
-#ifdef USE_KT403A_PLAYER
+#ifdef __USE_KT403A_PLAYER___
     case KT403A_PLAYER: {
       uint8_t result = _kt403a->stop();
-      if (result = (uint8_t) -1) return UNIFIED_MP3_FAIL;
-      return UNIFIED_MP3_SUCCESS;
+      if (result == (uint8_t) -1) return MP3_FUNCTION_FAIL;
+      return MP3_FUNCTION_SUCCESS;
     }
-#endif /* USE_KT403A_PLAYER */
-#ifdef USE_WT2003S_PLAYER
+#endif /* __USE_KT403A_PLAYER___ */
+#ifdef __USE_WT2003S_PLAYER___
     case WT2003S_PLAYER: {
       uint8_t result = _wt2003s->stop();
-      if (result = (uint8_t) -1) return UNIFIED_MP3_FAIL;
-      return UNIFIED_MP3_SUCCESS;
+      if (result == (uint8_t) -1) return MP3_FUNCTION_FAIL;
+      return MP3_FUNCTION_SUCCESS;
     }
-#endif /* USE_WT2003S_PLAYER */
-#ifdef USE_WT2605C_PLAYER
+#endif /* __USE_WT2003S_PLAYER___ */
+#ifdef __USE_WT2605C_PLAYER___
     case WT2605C_PLAYER: {
       uint8_t result = _wt2605c->stop();
-      if (result = (uint8_t) -1) return UNIFIED_MP3_FAIL;
-      return UNIFIED_MP3_SUCCESS;
+      if (result == (uint8_t) -1) return MP3_FUNCTION_FAIL;
+      return MP3_FUNCTION_SUCCESS;
     }
-#endif /* USE_WT2605C_PLAYER */
-#ifdef USE_DF_ROBOT_DF_PLAYER_MINI
+#endif /* __USE_WT2605C_PLAYER___ */
+#ifdef __USE_DF_ROBOT_DF_PLAYER_MINI___
     case DF_ROBOT_DFP_PLAYER_MINI: {
       _dfr_player_mini->stop();
-      return UNIFIED_MP3_SUCCESS;
+      return MP3_FUNCTION_SUCCESS;
     }
-#endif /* USE_DF_ROBOT_DF_PLAYER_MINI */
+#endif /* __USE_DF_ROBOT_DF_PLAYER_MINI___ */
     default: {
-      return UNIFIED_MP3_UNSUPPORTED;
+      return MP3_FUNCTION_UNSUPPORTED;
     }
   }
-  return UNIFIED_MP3_UNSUPPORTED;
+  return MP3_FUNCTION_UNSUPPORTED;
 }
 
-int UnifiedMP3::next(void) {
+mp3FunctionReturnValue UnifiedMP3::next(void) {
   switch(_type) {
-#ifdef USE_KT403A_PLAYER
+#ifdef __USE_KT403A_PLAYER___
     case KT403A_PLAYER: {
       uint8_t result = _kt403a->next();
-      if (result = (uint8_t) -1) return UNIFIED_MP3_FAIL;
-      return UNIFIED_MP3_SUCCESS;
+      if (result == (uint8_t) -1) return MP3_FUNCTION_FAIL;
+      return MP3_FUNCTION_SUCCESS;
     }
-#endif /* USE_KT403A_PLAYER */
-#ifdef USE_WT2003S_PLAYER
+#endif /* __USE_KT403A_PLAYER___ */
+#ifdef __USE_WT2003S_PLAYER___
     case WT2003S_PLAYER: {
       uint8_t result = _wt2003s->next();
-      if (result = (uint8_t) -1) return UNIFIED_MP3_FAIL;
-      return UNIFIED_MP3_SUCCESS;
+      if (result == (uint8_t) -1) return MP3_FUNCTION_FAIL;
+      return MP3_FUNCTION_SUCCESS;
     }
-#endif /* USE_WT2003S_PLAYER */
-#ifdef USE_WT2605C_PLAYER
+#endif /* __USE_WT2003S_PLAYER___ */
+#ifdef __USE_WT2605C_PLAYER___
     case WT2605C_PLAYER: {
       uint8_t result = _wt2605c->next();
-      if (result = (uint8_t) -1) return UNIFIED_MP3_FAIL;
-      return UNIFIED_MP3_SUCCESS;
+      if (result == (uint8_t) -1) return MP3_FUNCTION_FAIL;
+      return MP3_FUNCTION_SUCCESS;
     }
-#endif /* USE_WT2605C_PLAYER */
-#ifdef USE_DF_ROBOT_DF_PLAYER_MINI
+#endif /* __USE_WT2605C_PLAYER___ */
+#ifdef __USE_DF_ROBOT_DF_PLAYER_MINI___
     case DF_ROBOT_DFP_PLAYER_MINI: {
       _dfr_player_mini->next();
-      return UNIFIED_MP3_SUCCESS;
+      return MP3_FUNCTION_SUCCESS;
     }
-#endif /* USE_DF_ROBOT_DF_PLAYER_MINI */
+#endif /* __USE_DF_ROBOT_DF_PLAYER_MINI___ */
     default: {
-      return UNIFIED_MP3_UNSUPPORTED;
+      return MP3_FUNCTION_UNSUPPORTED;
     }
   }
-  return UNIFIED_MP3_UNSUPPORTED;
+  return MP3_FUNCTION_UNSUPPORTED;
 }
 
-int UnifiedMP3::previous(void) {
+mp3FunctionReturnValue UnifiedMP3::previous(void) {
   switch(_type) {
-#ifdef USE_KT403A_PLAYER
+#ifdef __USE_KT403A_PLAYER___
     case KT403A_PLAYER: {
       uint8_t result = _kt403a->previous();
-      if (result = (uint8_t) -1) return UNIFIED_MP3_FAIL;
-      return UNIFIED_MP3_SUCCESS;
+      if (result == (uint8_t) -1) return MP3_FUNCTION_FAIL;
+      return MP3_FUNCTION_SUCCESS;
     }
-#endif /* USE_KT403A_PLAYER */
-#ifdef USE_WT2003S_PLAYER
+#endif /* __USE_KT403A_PLAYER___ */
+#ifdef __USE_WT2003S_PLAYER___
     case WT2003S_PLAYER: {
       uint8_t result = _wt2003s->previous();
-      if (result = (uint8_t) -1) return UNIFIED_MP3_FAIL;
-      return UNIFIED_MP3_SUCCESS;
+      if (result == (uint8_t) -1) return MP3_FUNCTION_FAIL;
+      return MP3_FUNCTION_SUCCESS;
     }
-#endif /* USE_WT2003S_PLAYER */
-#ifdef USE_WT2605C_PLAYER
+#endif /* __USE_WT2003S_PLAYER___ */
+#ifdef __USE_WT2605C_PLAYER___
     case WT2605C_PLAYER: {
       uint8_t result = _wt2605c->previous();
-      if (result = (uint8_t) -1) return UNIFIED_MP3_FAIL;
-      return UNIFIED_MP3_SUCCESS;
+      if (result == (uint8_t) -1) return MP3_FUNCTION_FAIL;
+      return MP3_FUNCTION_SUCCESS;
     }
-#endif /* USE_WT2605C_PLAYER */
-#ifdef USE_DF_ROBOT_DF_PLAYER_MINI
+#endif /* __USE_WT2605C_PLAYER___ */
+#ifdef __USE_DF_ROBOT_DF_PLAYER_MINI___
     case DF_ROBOT_DFP_PLAYER_MINI: {
       _dfr_player_mini->previous();
-      return UNIFIED_MP3_SUCCESS;
+      return MP3_FUNCTION_SUCCESS;
     }
-#endif /* USE_DF_ROBOT_DF_PLAYER_MINI */
+#endif /* __USE_DF_ROBOT_DF_PLAYER_MINI___ */
     default: {
-      return UNIFIED_MP3_UNSUPPORTED;
+      return MP3_FUNCTION_UNSUPPORTED;
     }
   }
-  return UNIFIED_MP3_UNSUPPORTED;
+  return MP3_FUNCTION_UNSUPPORTED;
 }
 
-int UnifiedMP3::volume(uint8_t vol) {
+mp3FunctionReturnValue UnifiedMP3::volume(uint8_t vol) {
   switch(_type) {
-#ifdef USE_KT403A_PLAYER
+#ifdef __USE_KT403A_PLAYER___
     case KT403A_PLAYER: {
       uint8_t result = _kt403a->volume(vol);
-      if (result = (uint8_t) -1) return UNIFIED_MP3_FAIL;
-      return UNIFIED_MP3_SUCCESS;
+      if (result == (uint8_t) -1) return MP3_FUNCTION_FAIL;
+      return MP3_FUNCTION_SUCCESS;
     }
-#endif /* USE_KT403A_PLAYER */
-#ifdef USE_WT2003S_PLAYER
+#endif /* __USE_KT403A_PLAYER___ */
+#ifdef __USE_WT2003S_PLAYER___
     case WT2003S_PLAYER: {
       uint8_t result = _wt2003s->volume(vol);
-      if (result = (uint8_t) -1) return UNIFIED_MP3_FAIL;
-      return UNIFIED_MP3_SUCCESS;
+      if (result == (uint8_t) -1) return MP3_FUNCTION_FAIL;
+      return MP3_FUNCTION_SUCCESS;
     }
-#endif /* USE_WT2003S_PLAYER */
-#ifdef USE_WT2605C_PLAYER
+#endif /* __USE_WT2003S_PLAYER___ */
+#ifdef __USE_WT2605C_PLAYER___
     case WT2605C_PLAYER: {
       uint8_t result = _wt2605c->volume(vol);
-      if (result = (uint8_t) -1) return UNIFIED_MP3_FAIL;
-      return UNIFIED_MP3_SUCCESS;
+      //Serial.print("result = ");Serial.println(result);
+      if (result == (uint8_t) -1) return MP3_FUNCTION_FAIL;
+      //Serial.println("bar");
+      return MP3_FUNCTION_SUCCESS;
     }
-#endif /* USE_WT2605C_PLAYER */
-#ifdef USE_DF_ROBOT_DF_PLAYER_MINI
+#endif /* __USE_WT2605C_PLAYER___ */
+#ifdef __USE_DF_ROBOT_DF_PLAYER_MINI___
     case DF_ROBOT_DFP_PLAYER_MINI: {
       _dfr_player_mini->volume(vol);
-      return UNIFIED_MP3_SUCCESS;
+      return MP3_FUNCTION_SUCCESS;
     }
-#endif /* USE_DF_ROBOT_DF_PLAYER_MINI */
+#endif /* __USE_DF_ROBOT_DF_PLAYER_MINI___ */
     default: {
-      return UNIFIED_MP3_UNSUPPORTED;
+      return MP3_FUNCTION_UNSUPPORTED;
     }
   }
-  return UNIFIED_MP3_UNSUPPORTED;
+  return MP3_FUNCTION_UNSUPPORTED;
 }
 
-int UnifiedMP3::volumeDown(void) {
+mp3FunctionReturnValue UnifiedMP3::volumeDown(void) {
   switch(_type) {
-#ifdef USE_KT403A_PLAYER
+#ifdef __USE_KT403A_PLAYER___
     case KT403A_PLAYER: {
       uint8_t result = _kt403a->volumeDown();
-      if (result = (uint8_t) -1) return UNIFIED_MP3_FAIL;
-      return UNIFIED_MP3_SUCCESS;
+      if (result == (uint8_t) -1) return MP3_FUNCTION_FAIL;
+      return MP3_FUNCTION_SUCCESS;
     }
-#endif /* USE_KT403A_PLAYER */
-#ifdef USE_WT2003S_PLAYER
+#endif /* __USE_KT403A_PLAYER___ */
+#ifdef __USE_WT2003S_PLAYER___
     case WT2003S_PLAYER: {
       uint8_t result = _wt2003s->volumeDown();
-      if (result = (uint8_t) -1) return UNIFIED_MP3_FAIL;
-      return UNIFIED_MP3_SUCCESS;
+      if (result == (uint8_t) -1) return MP3_FUNCTION_FAIL;
+      return MP3_FUNCTION_SUCCESS;
     }
-#endif /* USE_WT2003S_PLAYER */
-#ifdef USE_WT2605C_PLAYER
+#endif /* __USE_WT2003S_PLAYER___ */
+#ifdef __USE_WT2605C_PLAYER___
     case WT2605C_PLAYER: {
       uint8_t result = _wt2605c->volumeDown();
-      if (result = (uint8_t) -1) return UNIFIED_MP3_FAIL;
-      return UNIFIED_MP3_SUCCESS;
+      if (result == (uint8_t) -1) return MP3_FUNCTION_FAIL;
+      return MP3_FUNCTION_SUCCESS;
     }
-#endif /* USE_WT2605C_PLAYER */
-#ifdef USE_DF_ROBOT_DF_PLAYER_MINI
+#endif /* __USE_WT2605C_PLAYER___ */
+#ifdef __USE_DF_ROBOT_DF_PLAYER_MINI___
     case DF_ROBOT_DFP_PLAYER_MINI: {
       _dfr_player_mini->volumeDown();
-      return UNIFIED_MP3_SUCCESS;
+      return MP3_FUNCTION_SUCCESS;
     }
-#endif /* USE_DF_ROBOT_DF_PLAYER_MINI */
+#endif /* __USE_DF_ROBOT_DF_PLAYER_MINI___ */
     default: {
-      return UNIFIED_MP3_UNSUPPORTED;
+      return MP3_FUNCTION_UNSUPPORTED;
     }
   }
-  return UNIFIED_MP3_UNSUPPORTED;
+  return MP3_FUNCTION_UNSUPPORTED;
 }
 
-int UnifiedMP3::volumeUp(void) {
+mp3FunctionReturnValue UnifiedMP3::volumeUp(void) {
   switch(_type) {
-#ifdef USE_KT403A_PLAYER
+#ifdef __USE_KT403A_PLAYER___
     case KT403A_PLAYER: {
       uint8_t result = _kt403a->volumeUp();
-      if (result = (uint8_t) -1) return UNIFIED_MP3_FAIL;
-      return UNIFIED_MP3_SUCCESS;
+      if (result == (uint8_t) -1) return MP3_FUNCTION_FAIL;
+      return MP3_FUNCTION_SUCCESS;
     }
-#endif /* USE_KT403A_PLAYER */
-#ifdef USE_WT2003S_PLAYER
+#endif /* __USE_KT403A_PLAYER___ */
+#ifdef __USE_WT2003S_PLAYER___
     case WT2003S_PLAYER: {
       uint8_t result = _wt2003s->volumeUp();
-      if (result = (uint8_t) -1) return UNIFIED_MP3_FAIL;
-      return UNIFIED_MP3_SUCCESS;
+      if (result == (uint8_t) -1) return MP3_FUNCTION_FAIL;
+      return MP3_FUNCTION_SUCCESS;
     }
-#endif /* USE_WT2003S_PLAYER */
-#ifdef USE_WT2605C_PLAYER
+#endif /* __USE_WT2003S_PLAYER___ */
+#ifdef __USE_WT2605C_PLAYER___
     case WT2605C_PLAYER: {
       uint8_t result = _wt2605c->volumeUp();
-      if (result = (uint8_t) -1) return UNIFIED_MP3_FAIL;
-      return UNIFIED_MP3_SUCCESS;
+      if (result == (uint8_t) -1) return MP3_FUNCTION_FAIL;
+      return MP3_FUNCTION_SUCCESS;
     }
-#endif /* USE_WT2605C_PLAYER */
-#ifdef USE_DF_ROBOT_DF_PLAYER_MINI
+#endif /* __USE_WT2605C_PLAYER___ */
+#ifdef __USE_DF_ROBOT_DF_PLAYER_MINI___
     case DF_ROBOT_DFP_PLAYER_MINI: {
       _dfr_player_mini->volumeUp();
-      return UNIFIED_MP3_SUCCESS;
+      return MP3_FUNCTION_SUCCESS;
     }
-#endif /* USE_DF_ROBOT_DF_PLAYER_MINI */
+#endif /* __USE_DF_ROBOT_DF_PLAYER_MINI___ */
     default: {
-      return UNIFIED_MP3_UNSUPPORTED;
+      return MP3_FUNCTION_UNSUPPORTED;
     }
   }
-  return UNIFIED_MP3_UNSUPPORTED;
+  return MP3_FUNCTION_UNSUPPORTED;
 }
 
-int UnifiedMP3::selectStorage(UnifiedMp3PlayerStorage storage) {
-#if defined(USE_WT2003S_PLAYER) || defined(USE_WT2605C_PLAYER)
+mp3FunctionReturnValue UnifiedMP3::selectStorage(UnifiedMp3PlayerStorage storage) {
+#if defined(__USE_WT2003S_PLAYER___) || defined(__USE_WT2605C_PLAYER___)
   if ((_type == WT2003S_PLAYER) || (_type == WT2605C_PLAYER)) {
     _storage_type = storage;
-    return UNIFIED_MP3_SUCCESS;
+    return MP3_FUNCTION_SUCCESS;
   }
-#endif /* USE_WT2003S_PLAYER || USE_WT2605C_PLAYER */
-  return UNIFIED_MP3_UNSUPPORTED;
+#endif /* __USE_WT2003S_PLAYER___ || __USE_WT2605C_PLAYER___ */
+  return MP3_FUNCTION_UNSUPPORTED;
 }
 
-int UnifiedMP3::pause(void) {
-#ifdef USE_KT403A_PLAYER
+mp3FunctionReturnValue UnifiedMP3::pause(void) {
+#ifdef __USE_KT403A_PLAYER___
   if (_type == KT403A_PLAYER) {
     uint8_t result = _kt403a->pause();
-    if (result = (uint8_t) -1) return UNIFIED_MP3_FAIL;
-    return UNIFIED_MP3_SUCCESS;
+    if (result == (uint8_t) -1) return MP3_FUNCTION_FAIL;
+    return MP3_FUNCTION_SUCCESS;
   }
-#endif /* USE_KT403A_PLAYER */
-#ifdef USE_WT2003S_PLAYER
+#endif /* __USE_KT403A_PLAYER___ */
+#ifdef __USE_WT2003S_PLAYER___
   if (_type == WT2003S_PLAYER) {
     _wt2003s->pause_or_play();
-    return UNIFIED_MP3_SUCCESS;
+    return MP3_FUNCTION_SUCCESS;
   }
-#endif /* USE_WT2003S_PLAYER */
-#ifdef USE_WT2605C_PLAYER
+#endif /* __USE_WT2003S_PLAYER___ */
+#ifdef __USE_WT2605C_PLAYER___
   if (_type == WT2605C_PLAYER) {
     _wt2605c->pause_or_play();
-    return UNIFIED_MP3_SUCCESS;
+    return MP3_FUNCTION_SUCCESS;
   }
-#endif /* USE_WT2605C_PLAYER */
-#ifdef USE_DF_ROBOT_DF_PLAYER_MINI
+#endif /* __USE_WT2605C_PLAYER___ */
+#ifdef __USE_DF_ROBOT_DF_PLAYER_MINI___
   if (_type == DF_ROBOT_DFP_PLAYER_MINI) {
     _dfr_player_mini->pause();
-    return UNIFIED_MP3_SUCCESS;
+    return MP3_FUNCTION_SUCCESS;
   }
-#endif /* USE_DF_ROBOT_DF_PLAYER_MINI */
-  return UNIFIED_MP3_UNSUPPORTED;
+#endif /* __USE_DF_ROBOT_DF_PLAYER_MINI___ */
+  return MP3_FUNCTION_UNSUPPORTED;
 }
 
-int UnifiedMP3::start(void) {
-#ifdef USE_KT403A_PLAYER
-#endif /* USE_KT403A_PLAYER */
-#ifdef USE_WT2003S_PLAYER
+mp3FunctionReturnValue UnifiedMP3::start(void) {
+#ifdef __USE_KT403A_PLAYER___
+#endif /* __USE_KT403A_PLAYER___ */
+#ifdef __USE_WT2003S_PLAYER___
   if (_type == WT2003S_PLAYER) {
     _wt2003s->pause_or_play();
-    return UNIFIED_MP3_SUCCESS;
+    return MP3_FUNCTION_SUCCESS;
   }
-#endif /* USE_WT2003S_PLAYER */
-#ifdef USE_WT2605C_PLAYER
+#endif /* __USE_WT2003S_PLAYER___ */
+#ifdef __USE_WT2605C_PLAYER___
   if (_type == WT2605C_PLAYER) {
     _wt2605c->pause_or_play();
-    return UNIFIED_MP3_SUCCESS;
+    return MP3_FUNCTION_SUCCESS;
   }
-#endif /* USE_WT2605C_PLAYER */
-#ifdef USE_DF_ROBOT_DF_PLAYER_MINI
+#endif /* __USE_WT2605C_PLAYER___ */
+#ifdef __USE_DF_ROBOT_DF_PLAYER_MINI___
   if (_type == DF_ROBOT_DFP_PLAYER_MINI) {
     _dfr_player_mini->start();
-    return UNIFIED_MP3_SUCCESS;
+    return MP3_FUNCTION_SUCCESS;
   }
-#endif /* USE_DF_ROBOT_DF_PLAYER_MINI */
-  return UNIFIED_MP3_UNSUPPORTED;
+#endif /* __USE_DF_ROBOT_DF_PLAYER_MINI___ */
+  return MP3_FUNCTION_UNSUPPORTED;
 }
 
-int UnifiedMP3::setMode(UnifiedMp3PlayerMode mode) {
-#ifdef USE_WT2003S_PLAYER
+mp3FunctionReturnValue UnifiedMP3::setMode(UnifiedMp3PlayerMode mode) {
+#ifdef __USE_WT2003S_PLAYER___
   uint8_t result;
   switch(mode) {
     case MP3_MODE_SINGLE_SHOT: {
-      result = _wt2003s->playMode(SINGLE_SHOT);
+      result = _wt2003s->playMode(WT2003S_SINGLE_SHOT);
       break;
     }
     case MP3_MODE_SINGLE_CYCLE: {
-      result = _wt2003s->playMode(SINGLE_CYCLE);
+      result = _wt2003s->playMode(WT2003S_SINGLE_CYCLE);
       break;
     }
     case MP3_MODE_CYCLE: {
-      result = _wt2003s->playMode(CYCLE);
+      result = _wt2003s->playMode(WT2003S_CYCLE);
       break;
     }
     case MP3_MODE_RANDOM: {
-      result = _wt2003s->playMode(RANDOM);
+      result = _wt2003s->playMode(WT2003S_RANDOM);
       break;
     }
     default: {
-      return UNIFIED_MP3_UNSUPPORTED;
+      return MP3_FUNCTION_UNSUPPORTED;
     }
   }
-  if (result = (uint8_t) -1) return UNIFIED_MP3_FAIL;
-  return UNIFIED_MP3_SUCCESS;
-#endif /* USE_WT2003S_PLAYER */
-#ifdef USE_WT2605C_PLAYER
+  if (result == (uint8_t) -1) return MP3_FUNCTION_FAIL;
+  return MP3_FUNCTION_SUCCESS;
+#endif /* __USE_WT2003S_PLAYER___ */
+#ifdef __USE_WT2605C_PLAYER___
   uint8_t wt2605c_result;
   switch(mode) {
     case MP3_MODE_SINGLE_SHOT: {
-      wt2605c_result = _wt2605c->playMode(SINGLE_SHOT);
+      wt2605c_result = _wt2605c->playMode(WT2605C_SINGLE_SHOT);
       break;
     }
     case MP3_MODE_SINGLE_CYCLE: {
-      wt2605c_result = _wt2605c->playMode(SINGLE_CYCLE);
+      wt2605c_result = _wt2605c->playMode(WT2605C_SINGLE_CYCLE);
       break;
     }
     case MP3_MODE_CYCLE: {
-      wt2605c_result = _wt2605c->playMode(CYCLE);
+      wt2605c_result = _wt2605c->playMode(WT2605C_CYCLE);
       break;
     }
     case MP3_MODE_RANDOM: {
-      wt2605c_result = _wt2605c->playMode(RANDOM);
+      wt2605c_result = _wt2605c->playMode(WT2605C_RANDOM);
       break;
     }
     case MP3_MODE_DIR_CYCLE: {
-      wt2605c_result = _wt2605c->playMode(DIR_CYCLE);
+      wt2605c_result = _wt2605c->playMode(WT2605C_DIR_CYCLE);
       break;
     }
     default: {
-      return UNIFIED_MP3_UNSUPPORTED;
+      return MP3_FUNCTION_UNSUPPORTED;
     }
   }
-  if (wt2605c_result = (uint8_t) -1) return UNIFIED_MP3_FAIL;
-  return UNIFIED_MP3_SUCCESS;
-#endif /* USE_WT2605C_PLAYER */
-  return UNIFIED_MP3_UNSUPPORTED;
+  if (wt2605c_result == (uint8_t) -1) return MP3_FUNCTION_FAIL;
+  return MP3_FUNCTION_SUCCESS;
+#endif /* __USE_WT2605C_PLAYER___ */
+  return MP3_FUNCTION_UNSUPPORTED;
 }
 
-int UnifiedMP3::playByIndex(uint32_t index, UnifiedMp3PlayerMode mode) {
-#if defined(USE_WT2003S_PLAYER) || defined(USE_WT2605C_PLAYER)
+mp3FunctionReturnValue UnifiedMP3::playByIndex(uint32_t index, UnifiedMp3PlayerMode mode) {
+#if defined(__USE_WT2003S_PLAYER___) || defined(__USE_WT2605C_PLAYER___)
   if ((_type == WT2003S_PLAYER) || (_type == WT2605C_PLAYER)) {
     switch(_storage_type) {
       case SD_STORAGE: {
-#ifdef USE_WT2003S_PLAYER
-        int modeResult = setMode(mode);
-        if (UNIFIED_MP3_SUCCESS != modeResult) return modeResult;
+        mp3FunctionReturnValue modeResult;
         uint8_t result;
+#ifdef __USE_WT2003S_PLAYER___
         result = _wt2003s->playSDRootSong(index);
-        if (result = (uint8_t) -1) return UNIFIED_MP3_FAIL;
-        return UNIFIED_MP3_SUCCESS;
-#endif /* USE_WT2003S_PLAYER */
-#ifdef USE_WT2605C_PLAYER
-        int modeResult = setMode(mode);
-        if (UNIFIED_MP3_SUCCESS != modeResult) return modeResult;
-        uint8_t result;
+        if (result == (uint8_t) -1) return MP3_FUNCTION_FAIL;
+        modeResult = setMode(mode);
+        if (MP3_FUNCTION_SUCCESS != modeResult) return modeResult;
+        return MP3_FUNCTION_SUCCESS;
+#endif /* __USE_WT2003S_PLAYER___ */
+#ifdef __USE_WT2605C_PLAYER___
         result = _wt2605c->playSDRootSong(index);
-        if (result = (uint8_t) -1) return UNIFIED_MP3_FAIL;
-        //Serial.println("set success********");
-        return UNIFIED_MP3_SUCCESS;
-#endif /* USE_WT2605C_PLAYER */
+        if (result == (uint8_t) -1) return MP3_FUNCTION_FAIL;
+        modeResult = setMode(mode);
+        if (MP3_FUNCTION_SUCCESS != modeResult) return modeResult;
+        return MP3_FUNCTION_SUCCESS;
+#endif /* __USE_WT2605C_PLAYER___ */
       }
       case UDISK_STORAGE: {
-#ifdef USE_WT2003S_PLAYER
-        int modeResult = setMode(mode);
-        if (UNIFIED_MP3_SUCCESS != modeResult) return modeResult;
+        mp3FunctionReturnValue modeResult;
         uint8_t result;
+#ifdef __USE_WT2003S_PLAYER___
         result = _wt2003s->playUDiskRootSong(index);
-        if (result = (uint8_t) -1) return UNIFIED_MP3_FAIL;
-        return UNIFIED_MP3_SUCCESS;
-#endif /* USE_WT2003S_PLAYER */
-#ifdef USE_WT2605C_PLAYER
-        int modeResult = setMode(mode);
-        if (UNIFIED_MP3_SUCCESS != modeResult) return modeResult;
-        uint8_t result;
+        if (result == (uint8_t) -1) return MP3_FUNCTION_FAIL;
+        modeResult = setMode(mode);
+        if (MP3_FUNCTION_SUCCESS != modeResult) return modeResult;
+        return MP3_FUNCTION_SUCCESS;
+#endif /* __USE_WT2003S_PLAYER___ */
+#ifdef __USE_WT2605C_PLAYER___
         result = _wt2605c->playUDiskRootSong(index);
-        if (result = (uint8_t) -1) return UNIFIED_MP3_FAIL;
-        return UNIFIED_MP3_SUCCESS;
-#endif /* USE_WT2605C_PLAYER */
+        if (result == (uint8_t) -1) return MP3_FUNCTION_FAIL;
+        modeResult = setMode(mode);
+        if (MP3_FUNCTION_SUCCESS != modeResult) return modeResult;
+        return MP3_FUNCTION_SUCCESS;
+#endif /* __USE_WT2605C_PLAYER___ */
       }
       case SPI_STORAGE: {
         uint16_t fileIndex = (uint16_t)index;
-#ifdef USE_WT2003S_PLAYER
-        int modeResult = setMode(mode);
-        if (UNIFIED_MP3_SUCCESS != modeResult) return modeResult;
+        mp3FunctionReturnValue modeResult;
         uint8_t result;
+#ifdef __USE_WT2003S_PLAYER___
         result = _wt2003s->playSPIFlashSong(fileIndex);
-        if (result = (uint8_t) -1) return UNIFIED_MP3_FAIL;
-        return UNIFIED_MP3_SUCCESS;
-#endif /* USE_WT2003S_PLAYER */
-#ifdef USE_WT2605C_PLAYER
-        int modeResult = setMode(mode);
-        if (UNIFIED_MP3_SUCCESS != modeResult) return modeResult;
-        uint8_t result;
+        if (result == (uint8_t) -1) return MP3_FUNCTION_FAIL;
+        modeResult = setMode(mode);
+        if (MP3_FUNCTION_SUCCESS != modeResult) return modeResult;
+        return MP3_FUNCTION_SUCCESS;
+#endif /* __USE_WT2003S_PLAYER___ */
+#ifdef __USE_WT2605C_PLAYER___
         result = _wt2605c->playSPIFlashSong(fileIndex);
-        if (result = (uint8_t) -1) return UNIFIED_MP3_FAIL;
-        return UNIFIED_MP3_SUCCESS;
-#endif /* USE_WT2605C_PLAYER */
+        if (result == (uint8_t) -1) return MP3_FUNCTION_FAIL;
+        modeResult = setMode(mode);
+        if (MP3_FUNCTION_SUCCESS != modeResult) return modeResult;
+        return MP3_FUNCTION_SUCCESS;
+#endif /* __USE_WT2605C_PLAYER___ */
       }
       default: {
-        return UNIFIED_MP3_UNSUPPORTED;
+        return MP3_FUNCTION_UNSUPPORTED;
       }
     }
-    return UNIFIED_MP3_SUCCESS;
+    return MP3_FUNCTION_SUCCESS;
   }
-#endif /* USE_WT2003S_PLAYER || USE_WT2605C_PLAYER */
-#ifdef USE_KT403A_PLAYER
+#endif /* __USE_WT2003S_PLAYER___ || __USE_WT2605C_PLAYER___ */
+#ifdef __USE_KT403A_PLAYER___
   if (_type == KT403A_PLAYER) {
     uint16_t fileIndex = (uint16_t)index;
     uint8_t result;
@@ -447,17 +448,17 @@ int UnifiedMP3::playByIndex(uint32_t index, UnifiedMp3PlayerMode mode) {
         break;
       }
       default: {
-        return UNIFIED_MP3_UNSUPPORTED;
+        return MP3_FUNCTION_UNSUPPORTED;
       }
     }
-    if (result = (uint8_t) -1) return UNIFIED_MP3_FAIL;
-    return UNIFIED_MP3_SUCCESS;
+    if (result == (uint8_t) -1) return MP3_FUNCTION_FAIL;
+    return MP3_FUNCTION_SUCCESS;
   }
-#endif /* USE_KT403A_PLAYER */
-#ifdef USE_DF_ROBOT_DF_PLAYER_MINI
+#endif /* __USE_KT403A_PLAYER___ */
+#ifdef __USE_DF_ROBOT_DF_PLAYER_MINI___
   if (_type == DF_ROBOT_DFP_PLAYER_MINI) {
     int fileIndex = (int)index;
-    uint8_t result;
+    //uint8_t result;
     switch(mode) {
       case MP3_MODE_SINGLE_SHOT: {
         //result = _dfr_player_mini->play(fileIndex);
@@ -470,22 +471,21 @@ int UnifiedMP3::playByIndex(uint32_t index, UnifiedMp3PlayerMode mode) {
         break;
       }
       default: {
-        return UNIFIED_MP3_UNSUPPORTED;
+        return MP3_FUNCTION_UNSUPPORTED;
       }
     }
-    //if (result = (uint8_t) -1) return UNIFIED_MP3_FAIL;
-    return UNIFIED_MP3_SUCCESS;
+    //if (result == (uint8_t) -1) return MP3_FUNCTION_FAIL;
+    return MP3_FUNCTION_SUCCESS;
   }
-#endif /* USE_DF_ROBOT_DF_PLAYER_MINI */
-  return UNIFIED_MP3_UNSUPPORTED;
+#endif /* __USE_DF_ROBOT_DF_PLAYER_MINI___ */
+  return MP3_FUNCTION_UNSUPPORTED;
 }
 
-
-int UnifiedMP3::playByName(const char* fileName, UnifiedMp3PlayerMode mode){
-#ifdef USE_WT2003S_PLAYER
+mp3FunctionReturnValue UnifiedMP3::playByName(const char* fileName, UnifiedMp3PlayerMode mode){
+#ifdef __USE_WT2003S_PLAYER___
   if (_type == WT2003S_PLAYER) {
-    int modeResult = setMode(mode);
-    if (UNIFIED_MP3_SUCCESS != modeResult) return modeResult;
+    mp3FunctionReturnValue modeResult = setMode(mode);
+    if (MP3_FUNCTION_SUCCESS != modeResult) return modeResult;
     uint8_t result;
     switch(_storage_type) {
       case SD_STORAGE: {
@@ -495,17 +495,15 @@ int UnifiedMP3::playByName(const char* fileName, UnifiedMp3PlayerMode mode){
         result = _wt2003s->playUDiskSong(fileName);
       }
       default: {
-        return UNIFIED_MP3_UNSUPPORTED;
+        return MP3_FUNCTION_UNSUPPORTED;
       }
     }
-    if (result = (uint8_t) -1) return UNIFIED_MP3_FAIL;
-    return UNIFIED_MP3_SUCCESS;
+    if (result == (uint8_t) -1) return MP3_FUNCTION_FAIL;
+    return MP3_FUNCTION_SUCCESS;
   }
-#endif /* USE_WT2003S_PLAYER */
-#ifdef USE_WT2605C_PLAYER
+#endif /* __USE_WT2003S_PLAYER___ */
+#ifdef __USE_WT2605C_PLAYER___
   if (_type == WT2605C_PLAYER) {
-    int modeResult = setMode(mode);
-    if (UNIFIED_MP3_SUCCESS != modeResult) return modeResult;
     uint8_t result;
     switch(_storage_type) {
       case SD_STORAGE: {
@@ -515,18 +513,20 @@ int UnifiedMP3::playByName(const char* fileName, UnifiedMp3PlayerMode mode){
         result = _wt2605c->playUDiskSong(fileName);
       }
       default: {
-        return UNIFIED_MP3_UNSUPPORTED;
+        return MP3_FUNCTION_UNSUPPORTED;
       }
     }
-    if (result = (uint8_t) -1) return UNIFIED_MP3_FAIL;
-    return UNIFIED_MP3_SUCCESS;
+    if (result == (uint8_t) -1) return MP3_FUNCTION_FAIL;
+    mp3FunctionReturnValue modeResult = setMode(mode);
+    if (MP3_FUNCTION_SUCCESS != modeResult) return modeResult;
+    return MP3_FUNCTION_SUCCESS;
   }
-#endif /* USE_WT2605C_PLAYER */
-  return UNIFIED_MP3_UNSUPPORTED;
+#endif /* __USE_WT2605C_PLAYER___ */
+  return MP3_FUNCTION_UNSUPPORTED;
 }
 
-int UnifiedMP3::playDirectoryByNumber(uint8_t folderNumber, uint32_t fileNumber, UnifiedMp3PlayerMode mode){
-#ifdef USE_KT403A_PLAYER
+mp3FunctionReturnValue UnifiedMP3::playDirectoryByNumber(uint8_t folderNumber, uint32_t fileNumber, UnifiedMp3PlayerMode mode){
+#ifdef __USE_KT403A_PLAYER___
   if (_type == KT403A_PLAYER) {
     uint8_t fileIndexNumber = (uint8_t)fileNumber;
     int kt403a_result;
@@ -535,17 +535,15 @@ int UnifiedMP3::playDirectoryByNumber(uint8_t folderNumber, uint32_t fileNumber,
         kt403a_result = _kt403a->playSongSpecify(folderNumber, fileIndexNumber);
       }
       default: {
-        return UNIFIED_MP3_UNSUPPORTED;
+        return MP3_FUNCTION_UNSUPPORTED;
       }
     }
-    if (kt403a_result = (uint8_t) -1) return UNIFIED_MP3_FAIL;
-    return UNIFIED_MP3_SUCCESS;
+    if (kt403a_result == (uint8_t) -1) return MP3_FUNCTION_FAIL;
+    return MP3_FUNCTION_SUCCESS;
   }
-#endif /* USE_KT403A_PLAYER */
-#ifdef USE_WT2003S_PLAYER
+#endif /* __USE_KT403A_PLAYER___ */
+#ifdef __USE_WT2003S_PLAYER___
   if (_type == WT2003S_PLAYER) {
-    int modeResult = setMode(mode);
-    if (UNIFIED_MP3_SUCCESS != modeResult) return modeResult;
     String dirName = String(folderNumber, DEC);
     int len = dirName.length() + 1;
     char result[len];
@@ -560,20 +558,23 @@ int UnifiedMP3::playDirectoryByNumber(uint8_t folderNumber, uint32_t fileNumber,
         wt2003s_result = _wt2003s->playUDiskDirectorySong(result, fileNumber);
       }
       default: {
-        return UNIFIED_MP3_UNSUPPORTED;
+        return MP3_FUNCTION_UNSUPPORTED;
       }
     }
-    if (wt2003s_result = (uint8_t) -1) return UNIFIED_MP3_FAIL;
-    return UNIFIED_MP3_SUCCESS;
+    if (wt2003s_result == (uint8_t) -1) return MP3_FUNCTION_FAIL;
+    mp3FunctionReturnValue modeResult = setMode(mode);
+    if (MP3_FUNCTION_SUCCESS != modeResult) return modeResult;
+    return MP3_FUNCTION_SUCCESS;
   }
-#endif /* USE_WT2003S_PLAYER */
-#ifdef USE_WT2605C_PLAYER
+#endif /* __USE_WT2003S_PLAYER___ */
+#ifdef __USE_WT2605C_PLAYER___
   if (_type == WT2605C_PLAYER) {
-    int modeResult = setMode(mode);
-    if (UNIFIED_MP3_SUCCESS != modeResult) return modeResult;
     String dirName = String(folderNumber, DEC);
     int len = dirName.length() + 1;
     char result[len];
+    for (int i=0;i<len;i++) {
+      result[i]=0;
+    }
     dirName.toCharArray(result, len);
     uint8_t wt2605c_result;
     switch(_storage_type) {
@@ -585,29 +586,41 @@ int UnifiedMP3::playDirectoryByNumber(uint8_t folderNumber, uint32_t fileNumber,
         wt2605c_result = _wt2605c->playUDiskDirectorySong(result, fileNumber);
       }
       default: {
-        return UNIFIED_MP3_UNSUPPORTED;
+        return MP3_FUNCTION_UNSUPPORTED;
       }
     }
-    if (wt2605c_result = (uint8_t) -1) return UNIFIED_MP3_FAIL;
-    return UNIFIED_MP3_SUCCESS;
+    if (wt2605c_result == (uint8_t) -1) return MP3_FUNCTION_FAIL;
+    mp3FunctionReturnValue modeResult = setMode(mode);
+    if (MP3_FUNCTION_SUCCESS != modeResult) return modeResult;
+    return MP3_FUNCTION_SUCCESS;
   }
-#endif /* USE_WT2605C_PLAYER */
-#ifdef USE_DF_ROBOT_DF_PLAYER_MINI
+#endif /* __USE_WT2605C_PLAYER___ */
+#ifdef __USE_DF_ROBOT_DF_PLAYER_MINI___
   if (_type == DF_ROBOT_DFP_PLAYER_MINI) {
-    if (mode != MP3_MODE_SINGLE_SHOT) return UNIFIED_MP3_UNSUPPORTED;
+    if (mode != MP3_MODE_SINGLE_SHOT) return MP3_FUNCTION_UNSUPPORTED;
     uint16_t fileIndexNumber = (uint16_t)fileNumber;
-    _dfr_player_mini->playLargeFolder(folderNumber, fileIndexNumber);
-    return UNIFIED_MP3_SUCCESS;
+    _dfr_player_mini->playFolder(folderNumber, fileIndexNumber);
+    return MP3_FUNCTION_SUCCESS;
   }
-#endif /* USE_DF_ROBOT_DF_PLAYER_MINI */
-  return UNIFIED_MP3_UNSUPPORTED;
+#endif /* __USE_DF_ROBOT_DF_PLAYER_MINI___ */
+  return MP3_FUNCTION_UNSUPPORTED;
 }
 
-int UnifiedMP3::playDirectoryByName(const char* dirName, uint32_t fileNumber, UnifiedMp3PlayerMode mode){
-#ifdef USE_WT2003S_PLAYER
+
+mp3FunctionReturnValue UnifiedMP3::playLargeDirectoryByNumber(uint8_t folderNumber, uint32_t fileNumber){
+#ifdef __USE_DF_ROBOT_DF_PLAYER_MINI___
+  if (_type == DF_ROBOT_DFP_PLAYER_MINI) {
+    uint16_t fileIndexNumber = (uint16_t)fileNumber;
+    _dfr_player_mini->playLargeFolder(folderNumber, fileIndexNumber);
+    return MP3_FUNCTION_SUCCESS;
+  }
+#endif /* __USE_DF_ROBOT_DF_PLAYER_MINI___ */
+  return MP3_FUNCTION_UNSUPPORTED;
+}
+
+mp3FunctionReturnValue UnifiedMP3::playDirectoryByName(const char* dirName, uint32_t fileNumber, UnifiedMp3PlayerMode mode){
+#ifdef __USE_WT2003S_PLAYER___
   if (_type == WT2003S_PLAYER) {
-    int modeResult = setMode(mode);
-    if (UNIFIED_MP3_SUCCESS != modeResult) return modeResult;
     uint8_t result;
     switch(_storage_type) {
       case SD_STORAGE: {
@@ -618,17 +631,17 @@ int UnifiedMP3::playDirectoryByName(const char* dirName, uint32_t fileNumber, Un
         result = _wt2003s->playUDiskDirectorySong(dirName, fileNumber);
       }
       default: {
-        return UNIFIED_MP3_UNSUPPORTED;
+        return MP3_FUNCTION_UNSUPPORTED;
       }
     }
-    if (result = (uint8_t) -1) return UNIFIED_MP3_FAIL;
-    return UNIFIED_MP3_SUCCESS;
+    if (result == (uint8_t) -1) return MP3_FUNCTION_FAIL;
+    mp3FunctionReturnValue modeResult = setMode(mode);
+    if (MP3_FUNCTION_SUCCESS != modeResult) return modeResult;
+    return MP3_FUNCTION_SUCCESS;
   }
-#endif /* USE_WT2003S_PLAYER */
-#ifdef USE_WT2605C_PLAYER
+#endif /* __USE_WT2003S_PLAYER___ */
+#ifdef __USE_WT2605C_PLAYER___
   if (_type == WT2605C_PLAYER) {
-    int modeResult = setMode(mode);
-    if (UNIFIED_MP3_SUCCESS != modeResult) return modeResult;
     uint8_t wt2605c_result;
     switch(_storage_type) {
       case SD_STORAGE: {
@@ -639,84 +652,86 @@ int UnifiedMP3::playDirectoryByName(const char* dirName, uint32_t fileNumber, Un
         wt2605c_result = _wt2605c->playUDiskDirectorySong(dirName, fileNumber);
       }
       default: {
-        return UNIFIED_MP3_UNSUPPORTED;
+        return MP3_FUNCTION_UNSUPPORTED;
       }
     }
-    if (wt2605c_result = (uint8_t) -1) return UNIFIED_MP3_FAIL;
-    return UNIFIED_MP3_SUCCESS;
+    if (wt2605c_result == (uint8_t) -1) return MP3_FUNCTION_FAIL;
+    mp3FunctionReturnValue modeResult = setMode(mode);
+    if (MP3_FUNCTION_SUCCESS != modeResult) return modeResult;
+    return MP3_FUNCTION_SUCCESS;
   }
-#endif /* USE_WT2605C_PLAYER */
-  return UNIFIED_MP3_UNSUPPORTED;
+#endif /* __USE_WT2605C_PLAYER___ */
+  return MP3_FUNCTION_UNSUPPORTED;
 }
 
-int UnifiedMP3::loopDirectory(int folderNumber) {
-#ifdef USE_DF_ROBOT_DF_PLAYER_MINI
+mp3FunctionReturnValue UnifiedMP3::loopDirectory(int folderNumber) {
+#ifdef __USE_DF_ROBOT_DF_PLAYER_MINI___
   _dfr_player_mini->loopFolder(folderNumber);
-  return UNIFIED_MP3_SUCCESS;
-#else /* USE_DF_ROBOT_DF_PLAYER_MINI */
-  return UNIFIED_MP3_UNSUPPORTED;
-#endif /* USE_DF_ROBOT_DF_PLAYER_MINI */
+  return MP3_FUNCTION_SUCCESS;
+#else /* __USE_DF_ROBOT_DF_PLAYER_MINI___ */
+  return MP3_FUNCTION_UNSUPPORTED;
+#endif /* __USE_DF_ROBOT_DF_PLAYER_MINI___ */
 }
 
-int UnifiedMP3::playMp3Directory(int fileNumber) {
-#ifdef USE_DF_ROBOT_DF_PLAYER_MINI
+mp3FunctionReturnValue UnifiedMP3::playMp3Directory(int fileNumber) {
+#ifdef __USE_DF_ROBOT_DF_PLAYER_MINI___
   _dfr_player_mini->playMp3Folder(fileNumber);
-  return UNIFIED_MP3_SUCCESS;
-#else /* USE_DF_ROBOT_DF_PLAYER_MINI */
-  return UNIFIED_MP3_UNSUPPORTED;
-#endif /* USE_DF_ROBOT_DF_PLAYER_MINI */
+  return MP3_FUNCTION_SUCCESS;
+#else /* __USE_DF_ROBOT_DF_PLAYER_MINI___ */
+  return MP3_FUNCTION_UNSUPPORTED;
+#endif /* __USE_DF_ROBOT_DF_PLAYER_MINI___ */
 }
 
-int UnifiedMP3::cutInPlay(UnifiedMp3PlayerStorage device, uint32_t index){
-#if defined(USE_WT2003S_PLAYER) || defined(USE_WT2605C_PLAYER)
+mp3FunctionReturnValue UnifiedMP3::cutInPlay(UnifiedMp3PlayerStorage device, uint32_t index){
+#if defined(__USE_WT2003S_PLAYER___) || defined(__USE_WT2605C_PLAYER___)
   uint8_t result;
-#ifdef USE_WT2003S_PLAYER
+#ifdef __USE_WT2003S_PLAYER___
   switch(device) {
     case SD_STORAGE: {
-      result = _wt2003s->cutInPlay(SD, index);
+      result = _wt2003s->cutInPlay(WT2003S_SD, index);
       break;
     }
     case SPI_STORAGE: {
-      result = _wt2003s->cutInPlay(SPIFLASH, index);
+      result = _wt2003s->cutInPlay(WT2003S_SPIFLASH, index);
       break;
     }
     case UDISK_STORAGE: {
-      result = _wt2003s->cutInPlay(UDISK, index);
+      result = _wt2003s->cutInPlay(WT2003S_UDISK, index);
       break;
     }
     default: {
-      return UNIFIED_MP3_UNSUPPORTED;
+      return MP3_FUNCTION_UNSUPPORTED;
     }
   }
-#endif /* USE_WT2003S_PLAYER */
-#ifdef USE_WT2605C_PLAYER
+#endif /* __USE_WT2003S_PLAYER___ */
+#ifdef __USE_WT2605C_PLAYER___
   switch(device) {
     case SD_STORAGE: {
-      result = _wt2605c->cutInPlay(SD, index);
+      result = _wt2605c->cutInPlay(WT2605C_SD, index);
       break;
     }
     case SPI_STORAGE: {
-      result = _wt2605c->cutInPlay(SPIFLASH, index);
+      result = _wt2605c->cutInPlay(WT2605C_SPIFLASH, index);
       break;
     }
     case UDISK_STORAGE: {
-      result = _wt2605c->cutInPlay(UDISK, index);
+      result = _wt2605c->cutInPlay(WT2605C_UDISK, index);
       break;
     }
     default: {
-      return UNIFIED_MP3_UNSUPPORTED;
+      return MP3_FUNCTION_UNSUPPORTED;
     }
   }
-#endif /* USE_WT2605C_PLAYER */
-  if (result = (uint8_t) -1) return UNIFIED_MP3_FAIL;
-  return UNIFIED_MP3_SUCCESS;
-#else /* defined(USE_WT2003S_PLAYER) || defined(USE_WT2605C_PLAYER) */
-  return UNIFIED_MP3_UNSUPPORTED;
-#endif /* defined(USE_WT2003S_PLAYER) || defined(USE_WT2605C_PLAYER) */
+#endif /* __USE_WT2605C_PLAYER___ */
+  if (result == (uint8_t) -1) return MP3_FUNCTION_FAIL;
+  return MP3_FUNCTION_SUCCESS;
+#else /* defined(__USE_WT2003S_PLAYER___) || defined(__USE_WT2605C_PLAYER___) */
+  return MP3_FUNCTION_UNSUPPORTED;
+#endif /* defined(__USE_WT2003S_PLAYER___) || defined(__USE_WT2605C_PLAYER___) */
 }
 
-int UnifiedMP3::setEQ(uint8_t eq) {
-#ifdef USE_KT403A_PLAYER
+mp3FunctionReturnValue UnifiedMP3::setEQ(uint8_t eq) {
+#ifdef __USE_KT403A_PLAYER___
   if (_type==KT403A_PLAYER) {
     uint8_t result;
     switch(eq) {
@@ -745,18 +760,18 @@ int UnifiedMP3::setEQ(uint8_t eq) {
         break;
       }
       default: {
-        return UNIFIED_MP3_UNSUPPORTED;
+        return MP3_FUNCTION_UNSUPPORTED;
       }
     }
-    if (result = (uint8_t) -1) return UNIFIED_MP3_FAIL;
-    return UNIFIED_MP3_SUCCESS;
+    if (result == (uint8_t) -1) return MP3_FUNCTION_FAIL;
+    return MP3_FUNCTION_SUCCESS;
   }
-#endif /* USE_KT403A_PLAYER */
-#ifdef USE_DF_ROBOT_DF_PLAYER_MINI
+#endif /* __USE_KT403A_PLAYER___ */
+#ifdef __USE_DF_ROBOT_DF_PLAYER_MINI___
   if (_type==DF_ROBOT_DFP_PLAYER_MINI) {
     _dfr_player_mini->EQ(eq);
-    return UNIFIED_MP3_SUCCESS;
+    return MP3_FUNCTION_SUCCESS;
   }
-#endif /* USE_DF_ROBOT_DF_PLAYER_MINI */
-  return UNIFIED_MP3_UNSUPPORTED;
+#endif /* __USE_DF_ROBOT_DF_PLAYER_MINI___ */
+  return MP3_FUNCTION_UNSUPPORTED;
 }
