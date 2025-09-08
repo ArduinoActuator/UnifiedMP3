@@ -1,14 +1,22 @@
 #include "UnifiedMP3.h"
 
 #ifdef __USE_KT403A_PLAYER___
+#ifdef __USE_SOFTWARE_SERIAL__
 UnifiedMP3::UnifiedMP3(KT403A<SoftwareSerial> * kt403a, UnifiedMp3PlayerType type):
+#else /* __USE_SOFTWARE_SERIAL__ */
+UnifiedMP3::UnifiedMP3(KT403A<HardwareSerial> * kt403a, UnifiedMp3PlayerType type):
+#endif /* __USE_SOFTWARE_SERIAL__ */
   _kt403a(kt403a),
   _type(type)
 {
 }
 #endif /* __USE_KT403A_PLAYER___ */
 #ifdef __USE_WT2003S_PLAYER___
+#ifdef __USE_SOFTWARE_SERIAL__
 UnifiedMP3::UnifiedMP3(WT2003S<SoftwareSerial> * wt2003s, UnifiedMp3PlayerType type):
+#else /* __USE_SOFTWARE_SERIAL__ */
+UnifiedMP3::UnifiedMP3(WT2003S<HardwareSerial> * wt2003s, UnifiedMp3PlayerType type):
+#endif /* __USE_SOFTWARE_SERIAL__ */
   _wt2003s(wt2003s),
   _type(type)
 {
@@ -16,7 +24,11 @@ UnifiedMP3::UnifiedMP3(WT2003S<SoftwareSerial> * wt2003s, UnifiedMp3PlayerType t
 }
 #endif /* __USE_WT2003S_PLAYER___ */
 #ifdef __USE_WT2605C_PLAYER___
+#ifdef __USE_SOFTWARE_SERIAL__
 UnifiedMP3::UnifiedMP3(WT2605C<SoftwareSerial> * wt2605c, UnifiedMp3PlayerType type):
+#else /* __USE_SOFTWARE_SERIAL__ */
+UnifiedMP3::UnifiedMP3(WT2605C<HardwareSerial> * wt2605c, UnifiedMp3PlayerType type):
+#endif /* __USE_SOFTWARE_SERIAL__ */
   _wt2605c(wt2605c),
   _type(type)
 {
@@ -24,7 +36,11 @@ UnifiedMP3::UnifiedMP3(WT2605C<SoftwareSerial> * wt2605c, UnifiedMp3PlayerType t
 }
 #endif /* __USE_WT2605C_PLAYER___ */
 #ifdef __USE_DF_ROBOT_DF_PLAYER_MINI___
+#ifdef __USE_SOFTWARE_SERIAL__
 UnifiedMP3::UnifiedMP3(DFRobotDFPlayerMini *dfr_player_mini, UnifiedMp3PlayerType type):
+#else /* __USE_SOFTWARE_SERIAL__ */
+UnifiedMP3::UnifiedMP3(DFRobotDFPlayerMini *dfr_player_mini, UnifiedMp3PlayerType type):
+#endif /* __USE_SOFTWARE_SERIAL__ */
   _dfr_player_mini(dfr_player_mini),
   _type(type)
 {

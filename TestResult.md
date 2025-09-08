@@ -11,14 +11,16 @@
 
 |機種名|[Grove - MP3 v4.0][GroveMP3v4]|[DFPlayer - A Mini MP3 Player][DFRobotDFPlayerMini]|
 |---|---|---|
-|[Arduino Nano ESP32][NanoESP32]|||
-|[Arduino Mega 2560][Mega2560]|||
-|[Arduino M0 pro][M0Pro]|||
-|[Arduino UNO R4 Minima][UnoR4Minima]|||
-|[Arduino Nano 33 IoT][Nano33IoT]|||
-|[Arduino Giga R1 Wifi][GigaR1WiFi]|||
-|[Ardino MKR Zero][MKRZero]|||
+|[Arduino Nano ESP32][NanoESP32]|-|-|
+|[Arduino Mega 2560][Mega2560]|▲1|◯|
+|[Arduino M0 pro][M0Pro]||◯|
+|[Arduino UNO R4 Minima][UnoR4Minima]|▲1|◯|
+|[Arduino Nano 33 IoT][Nano33IoT]||◯|
+|[Arduino Giga R1 Wifi][GigaR1WiFi]||◯|
+|[Ardino MKR Zero][MKRZero]||◯|
 |[Arduino Nano RP2040 Connect][NanoRP2040Connect]|||
+
+- 1 : ボリュームのUPとDOWNは動作するが，数値によるボリューム設定が動かない
 
 |内容|意味|
 |---|---|
@@ -33,15 +35,16 @@
 
 |機種名|[Grove - MP3 v4.0][GroveMP3v4]|
 |---|---|
-|[Arduino Nano ESP32][NanoESP32]||
-|[Arduino Mega 2560][Mega2560]||
+|[Arduino Nano ESP32][NanoESP32]|-|
+|[Arduino Mega 2560][Mega2560]|▲1|
 |[Arduino M0 pro][M0Pro]||
-|[Arduino UNO R4 Minima][UnoR4Minima]||
+|[Arduino UNO R4 Minima][UnoR4Minima]|▲1|
 |[Arduino Nano 33 IoT][Nano33IoT]||
-|[Arduino Giga R1 Wifi][GigaR1WiFi]||
+|[Arduino Giga R1 Wifi][GigaR1WiFi]|▲1|
 |[Ardino MKR Zero][MKRZero]||
 |[Arduino Nano RP2040 Connect][NanoRP2040Connect]||
 
+- 1 : ボリューム設定が動かない
 
 |内容|意味|
 |---|---|
@@ -56,13 +59,13 @@
 
 |機種名|[DFPlayer - A Mini MP3 Player][DFRobotDFPlayerMini]|
 |---|---|
-|[Arduino Nano ESP32][NanoESP32]||
-|[Arduino Mega 2560][Mega2560]||
-|[Arduino M0 pro][M0Pro]||
-|[Arduino UNO R4 Minima][UnoR4Minima]||
-|[Arduino Nano 33 IoT][Nano33IoT]||
-|[Arduino Giga R1 Wifi][GigaR1WiFi]||
-|[Ardino MKR Zero][MKRZero]||
+|[Arduino Nano ESP32][NanoESP32]|-|
+|[Arduino Mega 2560][Mega2560]|◯|
+|[Arduino M0 pro][M0Pro]|◯|
+|[Arduino UNO R4 Minima][UnoR4Minima]|◯|
+|[Arduino Nano 33 IoT][Nano33IoT]|◯|
+|[Arduino Giga R1 Wifi][GigaR1WiFi]|◯|
+|[Ardino MKR Zero][MKRZero]|◯|
 |[Arduino Nano RP2040 Connect][NanoRP2040Connect]||
 
 
@@ -208,14 +211,16 @@ mp3FunctionReturnValue start(void);
 
 |機種名|[Grove - MP3 v4.0][GroveMP3v4]|[DFPlayer - A Mini MP3 Player][DFRobotDFPlayerMini]|
 |---|---|---|
-|[Arduino Nano ESP32][NanoESP32]|||
-|[Arduino Mega 2560][Mega2560]|||
-|[Arduino M0 pro][M0Pro]|||
-|[Arduino UNO R4 Minima][UnoR4Minima]|||
-|[Arduino Nano 33 IoT][Nano33IoT]|||
-|[Arduino Giga R1 Wifi][GigaR1WiFi]|||
-|[Ardino MKR Zero][MKRZero]|||
+|[Arduino Nano ESP32][NanoESP32]|-|-|
+|[Arduino Mega 2560][Mega2560]|▲1|◯|
+|[Arduino M0 pro][M0Pro]||◯|
+|[Arduino UNO R4 Minima][UnoR4Minima]|▲1|◯|
+|[Arduino Nano 33 IoT][Nano33IoT]||◯|
+|[Arduino Giga R1 Wifi][GigaR1WiFi]|▲1|◯|
+|[Ardino MKR Zero][MKRZero]||◯|
 |[Arduino Nano RP2040 Connect][NanoRP2040Connect]|||
+
+- 1 : ベンダ提供デバイスドライバの挙動が怪しく，特にボリューム設定がうまくいかない場合が多い
 
 |内容|意味|
 |---|---|
@@ -252,17 +257,19 @@ mp3FunctionReturnValue previous(void);
 
 #### テスト結果
 
+
 |機種名|[Grove - MP3 v4.0][GroveMP3v4]|[DFPlayer - A Mini MP3 Player][DFRobotDFPlayerMini]|
 |---|---|---|
-|[Arduino Nano ESP32][NanoESP32]|||
-|[Arduino Mega 2560][Mega2560]|||
-|[Arduino M0 pro][M0Pro]|||
-|[Arduino UNO R4 Minima][UnoR4Minima]|||
-|[Arduino Nano 33 IoT][Nano33IoT]|||
-|[Arduino Giga R1 Wifi][GigaR1WiFi]|||
-|[Ardino MKR Zero][MKRZero]|||
+|[Arduino Nano ESP32][NanoESP32]|-|-|
+|[Arduino Mega 2560][Mega2560]|▲1|◯|
+|[Arduino M0 pro][M0Pro]||◯|
+|[Arduino UNO R4 Minima][UnoR4Minima]|▲1|◯|
+|[Arduino Nano 33 IoT][Nano33IoT]||◯|
+|[Arduino Giga R1 Wifi][GigaR1WiFi]|▲1|◯|
+|[Ardino MKR Zero][MKRZero]||◯|
 |[Arduino Nano RP2040 Connect][NanoRP2040Connect]|||
 
+- 1 : ベンダ提供デバイスドライバの挙動が怪しく，特にボリューム設定がうまくいかない場合が多い
 
 |内容|意味|
 |---|---|
@@ -299,14 +306,16 @@ mp3FunctionReturnValue volumeUp(void);
 
 |機種名|[Grove - MP3 v4.0][GroveMP3v4]|[DFPlayer - A Mini MP3 Player][DFRobotDFPlayerMini]|
 |---|---|---|
-|[Arduino Nano ESP32][NanoESP32]|||
-|[Arduino Mega 2560][Mega2560]|||
-|[Arduino M0 pro][M0Pro]|||
-|[Arduino UNO R4 Minima][UnoR4Minima]|||
-|[Arduino Nano 33 IoT][Nano33IoT]|||
-|[Arduino Giga R1 Wifi][GigaR1WiFi]|||
-|[Ardino MKR Zero][MKRZero]|||
+|[Arduino Nano ESP32][NanoESP32]|-|-|
+|[Arduino Mega 2560][Mega2560]|▲1|◯|
+|[Arduino M0 pro][M0Pro]||◯|
+|[Arduino UNO R4 Minima][UnoR4Minima]|▲1|◯|
+|[Arduino Nano 33 IoT][Nano33IoT]||◯|
+|[Arduino Giga R1 Wifi][GigaR1WiFi]|▲1|◯|
+|[Ardino MKR Zero][MKRZero]||◯|
 |[Arduino Nano RP2040 Connect][NanoRP2040Connect]|||
+
+- 1 : ベンダ提供デバイスドライバの挙動が怪しく，特にボリューム設定がうまくいかない場合が多い
 
 
 |内容|意味|
@@ -341,14 +350,16 @@ mp3FunctionReturnValue volume(uint8_t volume);
 
 |機種名|[Grove - MP3 v4.0][GroveMP3v4]|
 |---|---|
-|[Arduino Nano ESP32][NanoESP32]||
-|[Arduino Mega 2560][Mega2560]||
+|[Arduino Nano ESP32][NanoESP32]|-|
+|[Arduino Mega 2560][Mega2560]|▲1|
 |[Arduino M0 pro][M0Pro]||
-|[Arduino UNO R4 Minima][UnoR4Minima]||
+|[Arduino UNO R4 Minima][UnoR4Minima]|▲1|
 |[Arduino Nano 33 IoT][Nano33IoT]||
-|[Arduino Giga R1 Wifi][GigaR1WiFi]||
+|[Arduino Giga R1 Wifi][GigaR1WiFi]|▲1|
 |[Ardino MKR Zero][MKRZero]||
 |[Arduino Nano RP2040 Connect][NanoRP2040Connect]||
+
+- 1 : ベンダ提供デバイスドライバの挙動が怪しく，特にボリューム設定がうまくいかない場合が多い
 
 |内容|意味|
 |---|---|
@@ -383,13 +394,13 @@ mp3FunctionReturnValue volume(uint8_t volume);
 
 |機種名|[DFPlayer - A Mini MP3 Player][DFRobotDFPlayerMini]|
 |---|---|
-|[Arduino Nano ESP32][NanoESP32]||
-|[Arduino Mega 2560][Mega2560]||
-|[Arduino M0 pro][M0Pro]||
-|[Arduino UNO R4 Minima][UnoR4Minima]||
-|[Arduino Nano 33 IoT][Nano33IoT]||
-|[Arduino Giga R1 Wifi][GigaR1WiFi]||
-|[Ardino MKR Zero][MKRZero]||
+|[Arduino Nano ESP32][NanoESP32]|-|
+|[Arduino Mega 2560][Mega2560]|◯|
+|[Arduino M0 pro][M0Pro]|◯|
+|[Arduino UNO R4 Minima][UnoR4Minima]|◯|
+|[Arduino Nano 33 IoT][Nano33IoT]|◯|
+|[Arduino Giga R1 Wifi][GigaR1WiFi]|◯|
+|[Ardino MKR Zero][MKRZero]|◯|
 |[Arduino Nano RP2040 Connect][NanoRP2040Connect]||
 
 
@@ -427,14 +438,16 @@ mp3FunctionReturnValue stop(void);
 
 |機種名|[Grove - MP3 v4.0][GroveMP3v4]|
 |---|---|
-|[Arduino Nano ESP32][NanoESP32]||
-|[Arduino Mega 2560][Mega2560]||
+|[Arduino Nano ESP32][NanoESP32]|-|
+|[Arduino Mega 2560][Mega2560]|▲1|
 |[Arduino M0 pro][M0Pro]||
-|[Arduino UNO R4 Minima][UnoR4Minima]||
+|[Arduino UNO R4 Minima][UnoR4Minima]|▲1|
 |[Arduino Nano 33 IoT][Nano33IoT]||
-|[Arduino Giga R1 Wifi][GigaR1WiFi]||
+|[Arduino Giga R1 Wifi][GigaR1WiFi]|▲1|
 |[Ardino MKR Zero][MKRZero]||
 |[Arduino Nano RP2040 Connect][NanoRP2040Connect]||
+
+- 1 : ベンダ提供デバイスドライバの挙動が怪しく，特にボリューム設定がうまくいかない場合が多い
 
 |内容|意味|
 |---|---|
@@ -471,15 +484,16 @@ mp3FunctionReturnValue stop(void);
 
 |機種名|[Grove - MP3 v4.0][GroveMP3v4]|
 |---|---|
-|[Arduino Nano ESP32][NanoESP32]||
-|[Arduino Mega 2560][Mega2560]||
+|[Arduino Nano ESP32][NanoESP32]|-|
+|[Arduino Mega 2560][Mega2560]|▲1|
 |[Arduino M0 pro][M0Pro]||
-|[Arduino UNO R4 Minima][UnoR4Minima]||
+|[Arduino UNO R4 Minima][UnoR4Minima]|▲1|
 |[Arduino Nano 33 IoT][Nano33IoT]||
-|[Arduino Giga R1 Wifi][GigaR1WiFi]||
+|[Arduino Giga R1 Wifi][GigaR1WiFi]|▲1|
 |[Ardino MKR Zero][MKRZero]||
 |[Arduino Nano RP2040 Connect][NanoRP2040Connect]||
 
+- 1 : ベンダ提供デバイスドライバの挙動が怪しく，特にボリューム設定がうまくいかない場合が多い
 
 |内容|意味|
 |---|---|
@@ -514,13 +528,13 @@ mp3FunctionReturnValue stop(void);
 
 |機種名|[DFPlayer - A Mini MP3 Player][DFRobotDFPlayerMini]|
 |---|---|
-|[Arduino Nano ESP32][NanoESP32]||
-|[Arduino Mega 2560][Mega2560]||
-|[Arduino M0 pro][M0Pro]||
-|[Arduino UNO R4 Minima][UnoR4Minima]||
-|[Arduino Nano 33 IoT][Nano33IoT]||
-|[Arduino Giga R1 Wifi][GigaR1WiFi]||
-|[Ardino MKR Zero][MKRZero]||
+|[Arduino Nano ESP32][NanoESP32]|-|
+|[Arduino Mega 2560][Mega2560]|◯|
+|[Arduino M0 pro][M0Pro]|◯|
+|[Arduino UNO R4 Minima][UnoR4Minima]|◯|
+|[Arduino Nano 33 IoT][Nano33IoT]|◯|
+|[Arduino Giga R1 Wifi][GigaR1WiFi]|◯|
+|[Ardino MKR Zero][MKRZero]|◯|
 |[Arduino Nano RP2040 Connect][NanoRP2040Connect]||
 
 
@@ -556,13 +570,13 @@ mp3FunctionReturnValue stop(void);
 
 |機種名|[DFPlayer - A Mini MP3 Player][DFRobotDFPlayerMini]|
 |---|---|
-|[Arduino Nano ESP32][NanoESP32]||
-|[Arduino Mega 2560][Mega2560]||
-|[Arduino M0 pro][M0Pro]||
-|[Arduino UNO R4 Minima][UnoR4Minima]||
-|[Arduino Nano 33 IoT][Nano33IoT]||
-|[Arduino Giga R1 Wifi][GigaR1WiFi]||
-|[Ardino MKR Zero][MKRZero]||
+|[Arduino Nano ESP32][NanoESP32]|-|
+|[Arduino Mega 2560][Mega2560]|◯|
+|[Arduino M0 pro][M0Pro]|◯|
+|[Arduino UNO R4 Minima][UnoR4Minima]|◯|
+|[Arduino Nano 33 IoT][Nano33IoT]|◯|
+|[Arduino Giga R1 Wifi][GigaR1WiFi]|◯|
+|[Ardino MKR Zero][MKRZero]|◯|
 |[Arduino Nano RP2040 Connect][NanoRP2040Connect]||
 
 
@@ -597,13 +611,13 @@ mp3FunctionReturnValue stop(void);
 
 |機種名|[DFPlayer - A Mini MP3 Player][DFRobotDFPlayerMini]|
 |---|---|
-|[Arduino Nano ESP32][NanoESP32]||
-|[Arduino Mega 2560][Mega2560]||
-|[Arduino M0 pro][M0Pro]||
-|[Arduino UNO R4 Minima][UnoR4Minima]||
-|[Arduino Nano 33 IoT][Nano33IoT]||
-|[Arduino Giga R1 Wifi][GigaR1WiFi]||
-|[Ardino MKR Zero][MKRZero]||
+|[Arduino Nano ESP32][NanoESP32]|-|
+|[Arduino Mega 2560][Mega2560]|◯|
+|[Arduino M0 pro][M0Pro]|◯|
+|[Arduino UNO R4 Minima][UnoR4Minima]|◯|
+|[Arduino Nano 33 IoT][Nano33IoT]|◯|
+|[Arduino Giga R1 Wifi][GigaR1WiFi]|◯|
+|[Ardino MKR Zero][MKRZero]|◯|
 |[Arduino Nano RP2040 Connect][NanoRP2040Connect]||
 
 |内容|意味|
@@ -647,13 +661,13 @@ mp3FunctionReturnValue setEQ(uint8_t eq);
 
 |機種名|[DFPlayer - A Mini MP3 Player][DFRobotDFPlayerMini]|
 |---|---|
-|[Arduino Nano ESP32][NanoESP32]||
-|[Arduino Mega 2560][Mega2560]||
-|[Arduino M0 pro][M0Pro]||
-|[Arduino UNO R4 Minima][UnoR4Minima]||
-|[Arduino Nano 33 IoT][Nano33IoT]||
-|[Arduino Giga R1 Wifi][GigaR1WiFi]||
-|[Ardino MKR Zero][MKRZero]||
+|[Arduino Nano ESP32][NanoESP32]|-|
+|[Arduino Mega 2560][Mega2560]|◯|
+|[Arduino M0 pro][M0Pro]|◯|
+|[Arduino UNO R4 Minima][UnoR4Minima]|◯|
+|[Arduino Nano 33 IoT][Nano33IoT]|◯|
+|[Arduino Giga R1 Wifi][GigaR1WiFi]|◯|
+|[Ardino MKR Zero][MKRZero]|◯|
 |[Arduino Nano RP2040 Connect][NanoRP2040Connect]||
 
 
@@ -687,14 +701,14 @@ mp3FunctionReturnValue setEQ(uint8_t eq);
 
 |Arduino機種|コンパイル結果|
 |---|---|
-|[Arduino Nano ESP32][NanoESP32]||
-|[Arduino Mega 2560][Mega2560]||
-|[Arduino M0 pro][M0Pro]||
-|[Arduino UNO R4 Minima][UnoR4Minima]||
-|[Arduino Nano 33 IoT][Nano33IoT]||
-|[Arduino Giga R1 Wifi][GigaR1WiFi]||
-|[Ardino MKR Zero][MKRZero]||
-|[Arduino Nano RP2040 Connect][NanoRP2040Connect]||Adafruit NeoPixelライブラリが未対応
+|[Arduino Nano ESP32][NanoESP32]|✕|
+|[Arduino Mega 2560][Mega2560]|◯|
+|[Arduino M0 pro][M0Pro]|◯|
+|[Arduino UNO R4 Minima][UnoR4Minima]|◯|
+|[Arduino Nano 33 IoT][Nano33IoT]|◯|
+|[Arduino Giga R1 Wifi][GigaR1WiFi]|◯|
+|[Ardino MKR Zero][MKRZero]|◯|
+|[Arduino Nano RP2040 Connect][NanoRP2040Connect]||
 
 |内容|意味|
 |---|---|

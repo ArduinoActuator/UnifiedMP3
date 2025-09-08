@@ -6,7 +6,8 @@
 //#undef __USE_WT2605C_PLAYER___
 //#undef __USE_DF_ROBOT_DF_PLAYER_MINI___
 
+#ifdef __AVR__
 #define __USE_SOFTWARE_SERIAL__
-
+#endif
 
 #endif /* __UNIFIED_MP3_CONFIG_H__ */

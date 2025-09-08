@@ -8,6 +8,9 @@
 
 #include "UnifiedMP3_config.h"
 
+#include "detectArduinoHardware.h"
+
+
 #ifdef __USE_KT403A_PLAYER___  // Grove - MP3 v2.0  https://wiki.seeedstudio.com/Grove-MP3_v2.0/
 #include "KT403A_Player.h"
 #endif /* __USE_KT403A_PLAYER___ */
@@ -24,9 +27,9 @@
 #include "DFRobotDFPlayerMini.h"
 #endif /* __USE_DF_ROBOT_DF_PLAYER_MINI___ */
 
-#ifdef __AVR__
+#ifdef __USE_SOFTWARE_SERIAL__
 #include <SoftwareSerial.h>
-#endif /* __AVR__ */
+#endif /* __USE_SOFTWARE_SERIAL__ */
 
 //#define UNIFIED_MP3_UNSUPPORTED -1
 //#define UNIFIED_MP3_SUCCESS      1
@@ -64,13 +67,25 @@ typedef enum {
 class UnifiedMP3 {
 public:
 #ifdef __USE_KT403A_PLAYER___
+#ifdef __USE_SOFTWARE_SERIAL__
   UnifiedMP3(KT403A<SoftwareSerial> * kt403a, UnifiedMp3PlayerType type);
+#else /* __USE_SOFTWARE_SERIAL__ */
+  UnifiedMP3(KT403A<HardwareSerial> * kt403a, UnifiedMp3PlayerType type);
+#endif /* __USE_SOFTWARE_SERIAL__ */
 #endif /* __USE_KT403A_PLAYER___ */
 #ifdef __USE_WT2003S_PLAYER___
+#ifdef __USE_SOFTWARE_SERIAL__
   UnifiedMP3(WT2003S<SoftwareSerial> * wt2003s, UnifiedMp3PlayerType type);
+#else /* __USE_SOFTWARE_SERIAL__ */
+  UnifiedMP3(WT2003S<HardwareSerial> * wt2003s, UnifiedMp3PlayerType type);
+#endif /* __USE_SOFTWARE_SERIAL__ */
 #endif /* __USE_WT2003S_PLAYER___ */
 #ifdef __USE_WT2605C_PLAYER___
+#ifdef __USE_SOFTWARE_SERIAL__
   UnifiedMP3(WT2605C<SoftwareSerial> * wt2605c, UnifiedMp3PlayerType type);
+#else /* __USE_SOFTWARE_SERIAL__ */
+  UnifiedMP3(WT2605C<HardwareSerial> * wt2605c, UnifiedMp3PlayerType type);
+#endif /* __USE_SOFTWARE_SERIAL__ */
 #endif /* __USE_WT2605C_PLAYER___ */
 #ifdef __USE_DF_ROBOT_DF_PLAYER_MINI___
   UnifiedMP3(DFRobotDFPlayerMini *dfr_player_mini, UnifiedMp3PlayerType type);

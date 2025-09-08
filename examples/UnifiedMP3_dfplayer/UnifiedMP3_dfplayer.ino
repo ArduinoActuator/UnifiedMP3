@@ -2,7 +2,7 @@
 /*
  * NanoやMKRをClassic (UNO)のシールドを使えるようにするための変換基板を使うか否かの選択
  */
-#define USE_CONVERTER
+//#define USE_CONVERTER
 
 /*
  * デバイスの選択
@@ -99,7 +99,7 @@
 
 /* Arduino Giga */
 #if (HARDWARE_TYPE==ARDUINO_GIGA_WIFI_MAIN) || (HARDWARE_TYPE==ARDUINO_GIGA_WIFI_SUB)
-  #define COMSerial Serial1 // D19/RX, D18/TX
+  #define COMSerial Serial1 // D0/RX, D1/TX
   #define ShowSerial Serial
   #define _SET_SERIALS_
 #endif /* (HARDWARE_TYPE==ARDUINO_GIGA_WIFI_MAIN) || (HARDWARE_TYPE==ARDUINO_GIGA_WIFI_SUB) */

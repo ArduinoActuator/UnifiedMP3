@@ -2,13 +2,13 @@
 /*
  * NanoやMKRをClassic (UNO)のシールドを使えるようにするための変換基板を使うか否かの選択
  */
-#define USE_CONVERTER
+//#define USE_CONVERTER
 
 /*
  * デバイスの選択
  */
-#define USE_WT2605C_PLAYER
-//#define USE_DF_ROBOT_DF_PLAYER_MINI
+//#define USE_WT2605C_PLAYER
+#define USE_DF_ROBOT_DF_PLAYER_MINI
 
 /* microSD filesystem structure
 
@@ -119,7 +119,7 @@
 
 /* Arduino Giga */
 #if (HARDWARE_TYPE==ARDUINO_GIGA_WIFI_MAIN) || (HARDWARE_TYPE==ARDUINO_GIGA_WIFI_SUB)
-  #define COMSerial Serial1 // D19/RX, D18/TX
+  #define COMSerial Serial1 // D0/RX, D1/TX
   #define ShowSerial Serial
   #define _SET_SERIALS_
 #endif /* (HARDWARE_TYPE==ARDUINO_GIGA_WIFI_MAIN) || (HARDWARE_TYPE==ARDUINO_GIGA_WIFI_SUB) */
@@ -131,7 +131,11 @@
 #ifdef USE_WT2605C_PLAYER
 #define COMSERIAL_SPEED 115200
 #ifdef _SOFTWARE_SERIAL_
+#if HARDWARE_TYPE==ARDUINO_NANO_ESP32_S3
+WT2605C<EspSoftwareSerial> wt2605c_player;
+#else /* HARDWARE_TYPE==ARDUINO_NANO_ESP32_S3 */
 WT2605C<SoftwareSerial> wt2605c_player;
+#endif /* HARDWARE_TYPE==ARDUINO_NANO_ESP32_S3 */
 #else /* _SOFTWARE_SERIAL_ */
 WT2605C<HardwareSerial> wt2605c_player;
 #endif /* _SOFTWARE_SERIAL_ */
@@ -164,7 +168,6 @@ void printStartMessage(String about, uint8_t testNumber){
 
 void waitForStart(void){
   ShowSerial.print("Please press Enter key to start test : ");
-  int count =0;
   while (true) {
     if (ShowSerial.available() > 0) {
       char input = ShowSerial.read();
@@ -407,6 +410,12 @@ void test2() {
 }
 
 
+#ifdef USE_WT2605C_PLAYER
+#define LOOP_TIMES 4
+#else
+#define LOOP_TIMES 10
+#endif
+
 void test3() {
   String about = "test3";
   printStartMessage(about, 2);
@@ -414,8 +423,13 @@ void test3() {
   ShowSerial.println("=== action ===");
   ShowSerial.println("set volume : 15");
   ShowSerial.println("play num 1 of root directory");
+#ifdef USE_WT2605C_PLAYER
+  ShowSerial.println("volume up and wait 5sec 4 times");
+  ShowSerial.println("volume down and wait 5sec 4 times");
+#else
   ShowSerial.println("volume up and wait 5sec 10times");
   ShowSerial.println("volume down and wait 5sec 10times");
+#endif
   ShowSerial.println("stop");
   ShowSerial.println("");
   waitForStart();
@@ -437,13 +451,13 @@ void test3() {
   checkReturnValue(value,FUNCTION_VOLUME);
 #endif /* USE_WT2605C_PLAYER */
   delay(5000);
-  for (int i=0; i< 10 ;i++) {
+  for (int i=0; i< LOOP_TIMES ;i++) {
     ShowSerial.println("volume up and wait 5sec");
     value = Mp3Player.volumeUp();
     checkReturnValue(value,FUNCTION_VOLUME_UP);
     delay(5000);
   }
-  for (int i=0; i< 10 ;i++) {
+  for (int i=0; i< LOOP_TIMES ;i++) {
     ShowSerial.println("volume down and wait 5sec");
     value = Mp3Player.volumeDown();
     checkReturnValue(value,FUNCTION_VOLUME_DOWN);
