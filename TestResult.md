@@ -20,7 +20,7 @@
 |[Ardino MKR Zero][MKRZero]||◯|
 |[Arduino Nano RP2040 Connect][NanoRP2040Connect]|||
 
-- 1 : ボリュームのUPとDOWNは動作するが，数値によるボリューム設定が動かない
+- 1 : ボリュームのUPとDOWNは動作するが，数値によるボリューム設定を音楽再生前に行うと失敗する．
 
 |内容|意味|
 |---|---|
@@ -40,7 +40,7 @@
 |[Arduino M0 pro][M0Pro]||
 |[Arduino UNO R4 Minima][UnoR4Minima]|▲1|
 |[Arduino Nano 33 IoT][Nano33IoT]||
-|[Arduino Giga R1 Wifi][GigaR1WiFi]|▲1|
+|[Arduino Giga R1 Wifi][GigaR1WiFi]||
 |[Ardino MKR Zero][MKRZero]||
 |[Arduino Nano RP2040 Connect][NanoRP2040Connect]||
 
