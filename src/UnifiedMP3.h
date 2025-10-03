@@ -1,31 +1,31 @@
 #ifndef __UNIFIED_MP3_H__
 #define __UNIFIED_MP3_H__
 
-#define __USE_KT403A_PLAYER___
-#define __USE_WT2003S_PLAYER___
-#define __USE_WT2605C_PLAYER___
-#define __USE_DF_ROBOT_DF_PLAYER_MINI___
+#define __USE_KT403A_PLAYER__
+#define __USE_WT2003S_PLAYER__
+#define __USE_WT2605C_PLAYER__
+#define __USE_DF_ROBOT_DF_PLAYER_MINI__
 
 #include "UnifiedMP3_config.h"
 
 #include "detectArduinoHardware.h"
 
 
-#ifdef __USE_KT403A_PLAYER___  // Grove - MP3 v2.0  https://wiki.seeedstudio.com/Grove-MP3_v2.0/
+#ifdef __USE_KT403A_PLAYER__  // Grove - MP3 v2.0  https://wiki.seeedstudio.com/Grove-MP3_v2.0/
 #include "KT403A_Player.h"
-#endif /* __USE_KT403A_PLAYER___ */
+#endif /* __USE_KT403A_PLAYER__ */
 
-#ifdef __USE_WT2003S_PLAYER___  // Grove - MP3 v3.0  https://wiki.seeedstudio.com/Grove-MP3-v3/
+#ifdef __USE_WT2003S_PLAYER__  // Grove - MP3 v3.0  https://wiki.seeedstudio.com/Grove-MP3-v3/
 #include "WT2003S_Player.h"
-#endif /* __USE_WT2003S_PLAYER___ */
+#endif /* __USE_WT2003S_PLAYER__ */
 
-#ifdef __USE_WT2605C_PLAYER___  // Grove - MP3 v4.0  https://wiki.seeedstudio.com/grove_mp3_v4/
+#ifdef __USE_WT2605C_PLAYER__  // Grove - MP3 v4.0  https://wiki.seeedstudio.com/grove_mp3_v4/
 #include "WT2605C_Player.h"
-#endif /* __USE_WT2605C_PLAYER___ */
+#endif /* __USE_WT2605C_PLAYER__ */
 
-#ifdef __USE_DF_ROBOT_DF_PLAYER_MINI___
+#ifdef __USE_DF_ROBOT_DF_PLAYER_MINI__
 #include "DFRobotDFPlayerMini.h"
-#endif /* __USE_DF_ROBOT_DF_PLAYER_MINI___ */
+#endif /* __USE_DF_ROBOT_DF_PLAYER_MINI__ */
 
 #ifdef __USE_SOFTWARE_SERIAL__
 #include <SoftwareSerial.h>
@@ -66,30 +66,30 @@ typedef enum {
 
 class UnifiedMP3 {
 public:
-#ifdef __USE_KT403A_PLAYER___
+#ifdef __USE_KT403A_PLAYER__
 #ifdef __USE_SOFTWARE_SERIAL__
   UnifiedMP3(KT403A<SoftwareSerial> * kt403a, UnifiedMp3PlayerType type);
 #else /* __USE_SOFTWARE_SERIAL__ */
   UnifiedMP3(KT403A<HardwareSerial> * kt403a, UnifiedMp3PlayerType type);
 #endif /* __USE_SOFTWARE_SERIAL__ */
-#endif /* __USE_KT403A_PLAYER___ */
-#ifdef __USE_WT2003S_PLAYER___
+#endif /* __USE_KT403A_PLAYER__ */
+#ifdef __USE_WT2003S_PLAYER__
 #ifdef __USE_SOFTWARE_SERIAL__
   UnifiedMP3(WT2003S<SoftwareSerial> * wt2003s, UnifiedMp3PlayerType type);
 #else /* __USE_SOFTWARE_SERIAL__ */
   UnifiedMP3(WT2003S<HardwareSerial> * wt2003s, UnifiedMp3PlayerType type);
 #endif /* __USE_SOFTWARE_SERIAL__ */
-#endif /* __USE_WT2003S_PLAYER___ */
-#ifdef __USE_WT2605C_PLAYER___
+#endif /* __USE_WT2003S_PLAYER__ */
+#ifdef __USE_WT2605C_PLAYER__
 #ifdef __USE_SOFTWARE_SERIAL__
   UnifiedMP3(WT2605C<SoftwareSerial> * wt2605c, UnifiedMp3PlayerType type);
 #else /* __USE_SOFTWARE_SERIAL__ */
   UnifiedMP3(WT2605C<HardwareSerial> * wt2605c, UnifiedMp3PlayerType type);
 #endif /* __USE_SOFTWARE_SERIAL__ */
-#endif /* __USE_WT2605C_PLAYER___ */
-#ifdef __USE_DF_ROBOT_DF_PLAYER_MINI___
+#endif /* __USE_WT2605C_PLAYER__ */
+#ifdef __USE_DF_ROBOT_DF_PLAYER_MINI__
   UnifiedMP3(DFRobotDFPlayerMini *dfr_player_mini, UnifiedMp3PlayerType type);
-#endif /* __USE_DF_ROBOT_DF_PLAYER_MINI___ */
+#endif /* __USE_DF_ROBOT_DF_PLAYER_MINI__ */
   mp3FunctionReturnValue stop(void);
   mp3FunctionReturnValue next(void);
   mp3FunctionReturnValue previous(void);
@@ -111,47 +111,47 @@ public:
 
 private:
   mp3FunctionReturnValue setMode(UnifiedMp3PlayerMode mode);
-#if defined(__USE_WT2003S_PLAYER___) || defined(__USE_WT2605C_PLAYER___)
+#if defined(__USE_WT2003S_PLAYER__) || defined(__USE_WT2605C_PLAYER__)
   UnifiedMp3PlayerStorage _storage_type;
-#endif /* __USE_WT2003S_PLAYER___ || __USE_WT2605C_PLAYER___ */
+#endif /* __USE_WT2003S_PLAYER__ || __USE_WT2605C_PLAYER__ */
   UnifiedMp3PlayerType _type;
-#ifdef __USE_KT403A_PLAYER___
+#ifdef __USE_KT403A_PLAYER__
 #ifdef __USE_SOFTWARE_SERIAL__
   KT403A<SoftwareSerial> * _kt403a;
 #else /* __USE_SOFTWARE_SERIAL__ */
   KT403A<HardwareSerial> * _kt403a;
 #endif /* __USE_SOFTWARE_SERIAL__ */
-#endif /* __USE_KT403A_PLAYER___ */
-#ifdef __USE_WT2003S_PLAYER___
+#endif /* __USE_KT403A_PLAYER__ */
+#ifdef __USE_WT2003S_PLAYER__
 #ifdef __USE_SOFTWARE_SERIAL__
   WT2003S<SoftwareSerial> * _wt2003s;
 #else /* __USE_SOFTWARE_SERIAL__ */
   WT2003S<HardwareSerial> * _wt2003s;
 #endif /* __USE_SOFTWARE_SERIAL__ */
-#endif /* __USE_WT2003S_PLAYER___ */
-#ifdef __USE_WT2605C_PLAYER___
+#endif /* __USE_WT2003S_PLAYER__ */
+#ifdef __USE_WT2605C_PLAYER__
 #ifdef __USE_SOFTWARE_SERIAL__
   WT2605C<SoftwareSerial> * _wt2605c;
 #else /* __USE_SOFTWARE_SERIAL__ */
   WT2605C<HardwareSerial> * _wt2605c;
 #endif /* __USE_SOFTWARE_SERIAL__ */
-#endif /* __USE_WT2605C_PLAYER___ */
-#ifdef __USE_DF_ROBOT_DF_PLAYER_MINI___
+#endif /* __USE_WT2605C_PLAYER__ */
+#ifdef __USE_DF_ROBOT_DF_PLAYER_MINI__
   DFRobotDFPlayerMini * _dfr_player_mini;
-#endif /* __USE_DF_ROBOT_DF_PLAYER_MINI___ */
+#endif /* __USE_DF_ROBOT_DF_PLAYER_MINI__ */
 };
 
 #endif /* __UNIFIED_MP3_H__ */
 
-#if defined(__USE_KT403A_PLAYER___) || defined(__USE_WT2003S_PLAYER___) || defined(__USE_WT2605C_PLAYER___)
-#endif /* __USE_KT403A_PLAYER___ || __USE_WT2003S_PLAYER___ || __USE_WT2605C_PLAYER___ */
+#if defined(__USE_KT403A_PLAYER__) || defined(__USE_WT2003S_PLAYER__) || defined(__USE_WT2605C_PLAYER__)
+#endif /* __USE_KT403A_PLAYER__ || __USE_WT2003S_PLAYER__ || __USE_WT2605C_PLAYER__ */
 
 
-#ifdef __USE_KT403A_PLAYER___
-#endif /* __USE_KT403A_PLAYER___ */
-#ifdef __USE_WT2003S_PLAYER___
-#endif /* __USE_WT2003S_PLAYER___ */
-#ifdef __USE_WT2605C_PLAYER___
-#endif /* __USE_WT2605C_PLAYER___ */
-#ifdef __USE_DF_ROBOT_DF_PLAYER_MINI___
-#endif /* __USE_DF_ROBOT_DF_PLAYER_MINI___ */
+#ifdef __USE_KT403A_PLAYER__
+#endif /* __USE_KT403A_PLAYER__ */
+#ifdef __USE_WT2003S_PLAYER__
+#endif /* __USE_WT2003S_PLAYER__ */
+#ifdef __USE_WT2605C_PLAYER__
+#endif /* __USE_WT2605C_PLAYER__ */
+#ifdef __USE_DF_ROBOT_DF_PLAYER_MINI__
+#endif /* __USE_DF_ROBOT_DF_PLAYER_MINI__ */
