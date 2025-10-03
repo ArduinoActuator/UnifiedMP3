@@ -132,7 +132,8 @@
 #define COMSERIAL_SPEED 115200
 #ifdef _SOFTWARE_SERIAL_
 #if HARDWARE_TYPE==ARDUINO_NANO_ESP32_S3
-WT2605C<EspSoftwareSerial> wt2605c_player;
+//WT2605C<EspSoftwareSerial> wt2605c_player;
+WT2605C<SoftwareSerial> wt2605c_player;
 #else /* HARDWARE_TYPE==ARDUINO_NANO_ESP32_S3 */
 WT2605C<SoftwareSerial> wt2605c_player;
 #endif /* HARDWARE_TYPE==ARDUINO_NANO_ESP32_S3 */
